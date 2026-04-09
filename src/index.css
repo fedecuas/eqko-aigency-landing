@@ -1,0 +1,234 @@
+/* =========================================
+   GOOGLE FONTS IMPORT — must be first
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap');
+
+/* =========================================
+   TAILWIND DIRECTIVES
+   ========================================= */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ========================================= */
+:root {
+  /* Colors */
+  --color-carbono: #0F0E0D;
+  --color-grafito: #1A1917;
+  --color-piedra: #242220;
+  --color-crema: #F2EDE8;
+  --color-niebla: #9C9490;
+  --color-linea: #2E2C2A;
+  --color-amber: #E8A020;
+  --color-amber-dark: #C4821A;
+  --color-amber-light: #FFC84D;
+  --color-amber-subtle: rgba(232, 160, 32, 0.08);
+  --color-footer: #0A0908;
+
+  /* Typography */
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Spacing */
+  --section-padding: 5rem 1.5rem;
+  --section-padding-mobile: 3rem 1.25rem;
+
+  /* Transitions */
+  --transition-base: all 0.3s ease;
+  --transition-slow: all 0.5s ease-out;
+}
+
+/* =========================================
+   CSS RESET & BASE
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-carbono);
+  color: var(--color-crema);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* =========================================
+   TYPOGRAPHY BASE
+   ========================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-crema);
+  line-height: 1.15;
+}
+
+p {
+  font-family: var(--font-body);
+  color: var(--color-niebla);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-base);
+}
+
+/* =========================================
+   SCROLLBAR STYLING
+   ========================================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-carbono);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-linea);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-niebla);
+}
+
+/* =========================================
+   SELECTION
+   ========================================= */
+::selection {
+  background: rgba(232, 160, 32, 0.25);
+  color: var(--color-crema);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseCta {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 160, 32, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(232, 160, 32, 0);
+  }
+}
+
+@keyframes counterUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* =========================================
+   UTILITY CLASSES
+   ========================================= */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-pulse-cta {
+  animation: pulseCta 2s ease-in-out infinite;
+}
+
+/* Intersection Observer animation states */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* =========================================
+   BACKGROUND PATTERNS
+   ========================================= */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, #2E2C2A 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-amber-glow-right {
+  background-image: radial-gradient(ellipse at 85% 50%, rgba(232,160,32,0.12) 0%, transparent 55%);
+}
+
+.bg-amber-glow-center {
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.10) 0%, transparent 65%);
+}
+
+/* =========================================
+   COMPONENT BASE STYLES
+   ========================================= */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1.25rem;
+  }
+}
+
+.container-max {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(26, 25, 23, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-linea);
+}
+
+/* Card hover */
+.card-hover {
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  background-color: var(--color-piedra);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
