@@ -1,0 +1,4 @@
+Si ves esto, el nuevo usuario FTP con ruta forzada /public_html funcionó.
+¡Victoria!
+Versión: v1.11
+Hora: 2026-04-09 16:15:30
