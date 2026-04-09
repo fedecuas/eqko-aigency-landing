@@ -32,10 +32,12 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./
-          clean-destination: false
+          server-dir: /
+          protocol: ftp
+          # Nivel de log para ver qué está pasando exactamente
+          log-level: verbose
           # Excluimos archivos innecesarios en el servidor final
           exclude: |
             **/.git*
-            **/.git*/**
+            **/.github*
             **/node_modules/**
