@@ -88,7 +88,7 @@ function ServiceCard({ service, index, visible }) {
         relative flex flex-col p-6 rounded-2xl border
         transition-all duration-500 ease-out group cursor-default
         ${service.featured
-          ? 'border-[rgba(187,86,36,0.35)] bg-[rgba(187,86,36,0.04)]'
+          ? 'border-[rgba(183,206,20,0.35)] bg-[rgba(183,206,20,0.04)]'
           : 'border-[#1E3050] bg-[#132238] hover:bg-[#1A2D47]'
         }
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
@@ -98,7 +98,7 @@ function ServiceCard({ service, index, visible }) {
       {/* Featured badge */}
       {service.featured && (
         <div
-          className="absolute -top-3 left-5 px-3 py-1 rounded-full text-[11px] font-display font-bold text-[#0E1C2D] bg-[#BB5624]"
+          className="absolute -top-3 left-5 px-3 py-1 rounded-full text-[11px] font-display font-bold text-[#0E1C2D] bg-[#B7CE14]"
           aria-label="Servicio más popular"
         >
           Más solicitado
@@ -107,8 +107,8 @@ function ServiceCard({ service, index, visible }) {
 
       {/* Icon */}
       <div
-        className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[#BB5624] ${
-          service.featured ? 'bg-[rgba(187,86,36,0.15)]' : 'bg-[rgba(187,86,36,0.08)]'
+        className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[#B7CE14] ${
+          service.featured ? 'bg-[rgba(183,206,20,0.15)]' : 'bg-[rgba(183,206,20,0.08)]'
         }`}
       >
         {service.icon}
@@ -126,12 +126,12 @@ function ServiceCard({ service, index, visible }) {
 
       {/* Result tag */}
       <div className="flex items-start gap-2">
-        <div className="w-4 h-4 shrink-0 mt-0.5 text-[#BB5624]">
+        <div className="w-4 h-4 shrink-0 mt-0.5 text-[#B7CE14]">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M13.5 4.5L6.5 11.5L2.5 7.5"/>
           </svg>
         </div>
-        <span className="font-body text-[13px] text-[#BB5624] leading-[1.5]">
+        <span className="font-body text-[13px] text-[#B7CE14] leading-[1.5]">
           {service.tag}
         </span>
       </div>
@@ -139,7 +139,7 @@ function ServiceCard({ service, index, visible }) {
       {/* Hover gradient overlay */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ background: 'linear-gradient(135deg, rgba(187,86,36,0.03) 0%, transparent 60%)' }}
+        style={{ background: 'linear-gradient(135deg, rgba(183,206,20,0.03) 0%, transparent 60%)' }}
         aria-hidden="true"
       />
     </article>
@@ -167,7 +167,7 @@ export default function Services() {
           className={`mb-14 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         >
           {/* Decorative line */}
-          <div className="w-10 h-0.5 bg-[#BB5624] mb-5" aria-hidden="true" />
+          <div className="w-10 h-0.5 bg-[#B7CE14] mb-5" aria-hidden="true" />
 
           <h2
             className="font-display font-bold text-[#F1EDEE] max-w-[680px] mb-4"

@@ -125,7 +125,7 @@ export default function Process() {
 
                   {/* Icon circle */}
                   <div
-                    className="relative w-[52px] h-[52px] rounded-full flex items-center justify-center text-[#BB5624] border border-[#1E3050] z-10"
+                    className="relative w-[52px] h-[52px] rounded-full flex items-center justify-center text-[#B7CE14] border border-[#1E3050] z-10"
                     style={{ background: '#0E1C2D', boxShadow: '0 0 0 6px #0E1C2D' }}
                   >
                     {step.icon}
@@ -133,7 +133,7 @@ export default function Process() {
                 </div>
 
                 {/* Step number label */}
-                <span className="font-display font-bold text-[12px] text-[#BB5624] tracking-widest uppercase mb-2">
+                <span className="font-display font-bold text-[12px] text-[#B7CE14] tracking-widest uppercase mb-2">
                   {step.number}
                 </span>
 
@@ -166,7 +166,7 @@ export default function Process() {
             className="
               inline-flex items-center gap-2
               font-display font-bold text-[15px] text-[#0E1C2D]
-              bg-[#BB5624] hover:bg-[#9A4118]
+              bg-[#B7CE14] hover:bg-[#8FA810]
               px-7 py-4 rounded-xl
               transition-all duration-200
             "

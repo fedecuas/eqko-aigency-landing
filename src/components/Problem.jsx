@@ -83,8 +83,8 @@ export default function Problem() {
             >
               {/* Icon */}
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[#BB5624]"
-                style={{ background: 'rgba(187,86,36,0.08)' }}
+                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[#B7CE14]"
+                style={{ background: 'rgba(183,206,20,0.08)' }}
               >
                 {point.icon}
               </div>
@@ -101,7 +101,7 @@ export default function Problem() {
 
               {/* Hover accent line */}
               <div
-                className="absolute bottom-0 left-6 right-6 h-px bg-[#BB5624] opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                className="absolute bottom-0 left-6 right-6 h-px bg-[#B7CE14] opacity-0 group-hover:opacity-30 transition-opacity duration-300"
                 aria-hidden="true"
               />
             </article>
@@ -138,7 +138,7 @@ export default function Problem() {
                 style={{ fontSize: 'clamp(20px, 2.8vw, 26px)' }}
               >
                 La diferencia no es que ellos tengan más presupuesto. La diferencia es que{' '}
-                <span className="text-[#BB5624]">tienen un sistema</span>.
+                <span className="text-[#B7CE14]">tienen un sistema</span>.
               </p>
             </div>
           </div>

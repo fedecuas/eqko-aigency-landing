@@ -26,7 +26,7 @@ export default function CTAFinal() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(187,86,36,0.12) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(183,206,20,0.12) 0%, transparent 60%)',
         }}
         aria-hidden="true"
       />
@@ -34,12 +34,12 @@ export default function CTAFinal() {
       {/* Decorative ring */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5"
-        style={{ border: '1px solid #BB5624' }}
+        style={{ border: '1px solid #B7CE14' }}
         aria-hidden="true"
       />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full opacity-[0.03]"
-        style={{ border: '1px solid #BB5624' }}
+        style={{ border: '1px solid #B7CE14' }}
         aria-hidden="true"
       />
 
@@ -57,9 +57,9 @@ export default function CTAFinal() {
           <span
             className="inline-block px-3.5 py-1.5 rounded-full text-[11px] font-display font-bold uppercase tracking-widest mb-6"
             style={{
-              background: 'rgba(187,86,36,0.1)',
-              border: '1px solid rgba(187,86,36,0.25)',
-              color: '#BB5624',
+              background: 'rgba(183,206,20,0.1)',
+              border: '1px solid rgba(183,206,20,0.25)',
+              color: '#B7CE14',
             }}
           >
             Sin costo · Sin compromiso
@@ -99,7 +99,7 @@ export default function CTAFinal() {
             className="
               inline-flex items-center justify-center gap-2.5
               font-display font-bold text-[16px] md:text-[17px] text-[#0E1C2D]
-              bg-[#BB5624] hover:bg-[#9A4118]
+              bg-[#B7CE14] hover:bg-[#8FA810]
               px-8 py-5 rounded-xl
               transition-all duration-200
               w-full sm:w-auto

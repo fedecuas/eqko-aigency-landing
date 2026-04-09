@@ -14,10 +14,10 @@ export default {
         niebla: '#8899AA',
         linea: '#1E3050',
         amber: {
-          DEFAULT: '#BB5624',
-          dark: '#9A4118',
-          light: '#D4682E',
-          subtle: 'rgba(187,86,36,0.08)',
+          DEFAULT: '#B7CE14',
+          dark: '#8FA810',
+          light: '#CDE015',
+          subtle: 'rgba(183,206,20,0.08)',
         },
       },
       fontFamily: {
@@ -42,8 +42,8 @@ export default {
       },
       backgroundImage: {
         'dot-grid': 'radial-gradient(circle, #1E3050 1px, transparent 1px)',
-        'amber-radial': 'radial-gradient(ellipse at right center, rgba(187,86,36,0.12) 0%, transparent 60%)',
-        'amber-center': 'radial-gradient(ellipse at center, rgba(187,86,36,0.10) 0%, transparent 70%)',
+        'amber-radial': 'radial-gradient(ellipse at right center, rgba(183,206,20,0.12) 0%, transparent 60%)',
+        'amber-center': 'radial-gradient(ellipse at center, rgba(183,206,20,0.10) 0%, transparent 70%)',
       },
       backgroundSize: {
         'dot-grid': '32px 32px',
@@ -59,8 +59,8 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         pulseCta: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(187, 86, 36, 0.4)' },
-          '50%': { boxShadow: '0 0 0 12px rgba(187, 86, 36, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(183, 206, 20, 0.4)' },
+          '50%': { boxShadow: '0 0 0 12px rgba(183, 206, 20, 0)' },
         },
       },
       transitionTimingFunction: {

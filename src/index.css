@@ -21,10 +21,10 @@
   --color-crema: #F1EDEE;
   --color-niebla: #8899AA;
   --color-linea: #1E3050;
-  --color-amber: #BB5624;
-  --color-amber-dark: #9A4118;
-  --color-amber-light: #D4682E;
-  --color-amber-subtle: rgba(187, 86, 36, 0.08);
+  --color-amber: #B7CE14;
+  --color-amber-dark: #8FA810;
+  --color-amber-light: #CDE015;
+  --color-amber-subtle: rgba(183, 206, 20, 0.08);
   --color-footer: #080F18;
 
   /* Typography */
@@ -108,7 +108,7 @@ a {
    SELECTION
    ========================================= */
 ::selection {
-  background: rgba(187, 86, 36, 0.25);
+  background: rgba(183, 206, 20, 0.25);
   color: var(--color-crema);
 }
 
@@ -128,10 +128,10 @@ a {
 
 @keyframes pulseCta {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(187, 86, 36, 0.4);
+    box-shadow: 0 0 0 0 rgba(183, 206, 20, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(187, 86, 36, 0);
+    box-shadow: 0 0 0 12px rgba(183, 206, 20, 0);
   }
 }
 
@@ -189,11 +189,11 @@ a {
 }
 
 .bg-amber-glow-right {
-  background-image: radial-gradient(ellipse at 85% 50%, rgba(187,86,36,0.12) 0%, transparent 55%);
+  background-image: radial-gradient(ellipse at 85% 50%, rgba(183,206,20,0.12) 0%, transparent 55%);
 }
 
 .bg-amber-glow-center {
-  background-image: radial-gradient(ellipse at 50% 50%, rgba(187,86,36,0.10) 0%, transparent 65%);
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(183,206,20,0.10) 0%, transparent 65%);
 }
 
 /* =========================================

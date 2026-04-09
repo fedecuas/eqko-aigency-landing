@@ -45,7 +45,7 @@ export default function WhyUs() {
             className={`transition-all duration-600 ${leftVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} lg:sticky lg:top-28`}
           >
             {/* Decorative line */}
-            <div className="w-10 h-0.5 bg-[#BB5624] mb-5" aria-hidden="true" />
+            <div className="w-10 h-0.5 bg-[#B7CE14] mb-5" aria-hidden="true" />
 
             <h2
               className="font-display font-bold text-[#F1EDEE] mb-5"
@@ -63,9 +63,9 @@ export default function WhyUs() {
               href="#contacto"
               className="
                 inline-flex items-center gap-2
-                font-display font-semibold text-[14px] text-[#BB5624]
-                border border-[rgba(187,86,36,0.35)] hover:border-[#BB5624]
-                hover:bg-[rgba(187,86,36,0.06)]
+                font-display font-semibold text-[14px] text-[#B7CE14]
+                border border-[rgba(183,206,20,0.35)] hover:border-[#B7CE14]
+                hover:bg-[rgba(183,206,20,0.06)]
                 px-5 py-3 rounded-xl
                 transition-all duration-200
               "
@@ -93,7 +93,7 @@ export default function WhyUs() {
               >
                 {/* Number */}
                 <span
-                  className="font-display font-bold text-[#BB5624] text-[14px] tracking-widest mb-3 block"
+                  className="font-display font-bold text-[#B7CE14] text-[14px] tracking-widest mb-3 block"
                   aria-hidden="true"
                 >
                   {item.number}
@@ -111,7 +111,7 @@ export default function WhyUs() {
 
                 {/* Amber bottom accent on hover */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl bg-[#BB5624] opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl bg-[#B7CE14] opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                   aria-hidden="true"
                 />
               </article>

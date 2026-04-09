@@ -51,7 +51,7 @@ export default function Navbar() {
         aria-label="Navegación principal"
       >
         <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-          <div className="flex items-center justify-between h-16 md:h-18">
+          <div className="flex items-center justify-between h-20 md:h-24">
 
             {/* Logo */}
             <a
@@ -59,7 +59,7 @@ export default function Navbar() {
               className="flex items-center gap-2 leading-none"
               aria-label="EQKO AIgency - inicio"
             >
-              <img src="/logo.svg" alt="EQKO AIgency" className="h-10 w-auto" />
+              <img src="/logo.svg" alt="EQKO AIgency" className="h-12 w-auto" />
             </a>
 
             {/* Desktop nav links */}
@@ -69,7 +69,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
-                  className="font-body text-[15px] text-[#8899AA] hover:text-[#F1EDEE] transition-colors duration-200 cursor-pointer"
+                  className="font-body text-[17px] text-[#8899AA] hover:text-[#F1EDEE] transition-colors duration-200 cursor-pointer"
                 >
                   {link.label}
                 </a>
@@ -83,7 +83,7 @@ export default function Navbar() {
                 onClick={(e) => { e.preventDefault(); handleLinkClick('#contacto'); }}
                 className="
                   font-display font-semibold text-[14px] text-[#0E1C2D]
-                  bg-[#BB5624] hover:bg-[#9A4118]
+                  bg-[#B7CE14] hover:bg-[#8FA810]
                   px-5 py-2.5 rounded-lg
                   transition-all duration-200
                   flex items-center gap-1.5
@@ -184,7 +184,7 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleLinkClick('#contacto'); }}
             className="
               w-full font-display font-semibold text-[15px] text-[#0E1C2D]
-              bg-[#BB5624] hover:bg-[#9A4118]
+              bg-[#B7CE14] hover:bg-[#8FA810]
               py-3.5 rounded-lg
               transition-all duration-200
               flex items-center justify-center gap-2

@@ -75,7 +75,7 @@
             <div className="flex flex-col gap-3">
               <a
                 href="mailto:hola@eqko.mx"
-                className="flex items-center gap-2 font-body text-[14px] text-[#8899AA] hover:text-[#BB5624] transition-colors duration-200"
+                className="flex items-center gap-2 font-body text-[14px] text-[#8899AA] hover:text-[#B7CE14] transition-colors duration-200"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -90,7 +90,7 @@
                 className="
                   inline-flex items-center gap-2
                   font-display font-semibold text-[13px] text-[#0E1C2D]
-                  bg-[#BB5624] hover:bg-[#9A4118]
+                  bg-[#B7CE14] hover:bg-[#8FA810]
                   px-4 py-2.5 rounded-lg
                   transition-all duration-200
                   w-fit
@@ -111,7 +111,7 @@
             </p>
             <div className="flex items-center gap-1">
               <span className="font-body text-[12px] text-[#8899AA]">Hecho con</span>
-              <span className="text-[#BB5624] text-[13px]">♦</span>
+              <span className="text-[#B7CE14] text-[13px]">♦</span>
               <span className="font-body text-[12px] text-[#8899AA]">para negocios que quieren crecer.</span>
             </div>
           </div>

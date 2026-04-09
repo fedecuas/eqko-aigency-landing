@@ -22,9 +22,9 @@ function MetricCounter({ value, suffix, prefix, label, visible, delay }) {
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="font-display font-extrabold text-[#F1EDEE] mb-1.5" style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: '1' }}>
-        {prefix && <span className="text-[#BB5624]">{prefix}</span>}
+        {prefix && <span className="text-[#B7CE14]">{prefix}</span>}
         {formatValue(count)}
-        {suffix && <span className="text-[#BB5624]">{suffix}</span>}
+        {suffix && <span className="text-[#B7CE14]">{suffix}</span>}
       </div>
       <p className="font-body text-[13px] text-[#8899AA] leading-[1.4] max-w-[130px]">
         {label}
@@ -67,13 +67,13 @@ const testimonials = [
   },
 ];
 
-const avatarColors = ['#BB5624', '#9A4118', '#D4682E'];
+const avatarColors = ['#B7CE14', '#8FA810', '#CDE015'];
 
 function StarRating() {
   return (
     <div className="flex gap-0.5 mb-4" aria-label="5 de 5 estrellas">
       {[...Array(5)].map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#BB5624" aria-hidden="true">
+        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#B7CE14" aria-hidden="true">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
       ))}
@@ -121,9 +121,9 @@ function TestimonialCard({ testimonial, index, visible }) {
       {/* Result tag */}
       <div
         className="mt-4 px-3.5 py-2 rounded-lg"
-        style={{ background: 'rgba(187,86,36,0.08)', border: '1px solid rgba(187,86,36,0.15)' }}
+        style={{ background: 'rgba(183,206,20,0.08)', border: '1px solid rgba(183,206,20,0.15)' }}
       >
-        <p className="font-display font-semibold text-[12px] text-[#BB5624] flex items-center gap-1.5">
+        <p className="font-display font-semibold text-[12px] text-[#B7CE14] flex items-center gap-1.5">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
             <polyline points="17 6 23 6 23 12"/>

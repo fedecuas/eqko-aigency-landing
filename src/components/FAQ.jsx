@@ -44,7 +44,7 @@ function FAQItem({ faq, index, visible }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer bg-transparent border-none"
         aria-expanded={open}
-        style={{ background: open ? 'rgba(187,86,36,0.04)' : '#132238' }}
+        style={{ background: open ? 'rgba(183,206,20,0.04)' : '#132238' }}
       >
         <span className="font-display font-semibold text-[15px] md:text-[16px] text-[#F1EDEE] leading-[1.3]">
           {faq.question}
@@ -52,13 +52,13 @@ function FAQItem({ faq, index, visible }) {
         <span
           className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300"
           style={{
-            background: open ? '#BB5624' : 'rgba(187,86,36,0.1)',
+            background: open ? '#B7CE14' : 'rgba(183,206,20,0.1)',
             transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
           }}
           aria-hidden="true"
         >
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M6 2v8M2 6h8" stroke={open ? '#0E1C2D' : '#BB5624'} strokeWidth="1.8" strokeLinecap="round"/>
+            <path d="M6 2v8M2 6h8" stroke={open ? '#0E1C2D' : '#B7CE14'} strokeWidth="1.8" strokeLinecap="round"/>
           </svg>
         </span>
       </button>
@@ -95,7 +95,7 @@ export default function FAQ() {
           ref={headerRef}
           className={`max-w-[640px] mb-12 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         >
-          <div className="w-10 h-0.5 bg-[#BB5624] mb-5" aria-hidden="true" />
+          <div className="w-10 h-0.5 bg-[#B7CE14] mb-5" aria-hidden="true" />
           <h2
             className="font-display font-bold text-[#F1EDEE] mb-4"
             style={{ fontSize: 'clamp(26px, 3.8vw, 40px)', lineHeight: '1.15' }}
@@ -125,7 +125,7 @@ export default function FAQ() {
             ¿Tienes alguna otra pregunta?{' '}
             <a
               href="mailto:hola@pixelagents.com"
-              className="text-[#BB5624] hover:underline transition-colors"
+              className="text-[#B7CE14] hover:underline transition-colors"
             >
               Escríbenos directamente.
             </a>
@@ -135,7 +135,7 @@ export default function FAQ() {
             className="
               inline-flex items-center gap-2
               font-display font-bold text-[15px] text-[#0E1C2D]
-              bg-[#BB5624] hover:bg-[#9A4118]
+              bg-[#B7CE14] hover:bg-[#8FA810]
               px-7 py-4 rounded-xl
               transition-all duration-200
             "
