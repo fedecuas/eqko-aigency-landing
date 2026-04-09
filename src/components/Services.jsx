@@ -1,4 +1,4 @@
-﻿import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 // Lucide-style SVG Icons (inline, no dependency)
 const icons = {
@@ -89,7 +89,7 @@ function ServiceCard({ service, index, visible }) {
         transition-all duration-500 ease-out group cursor-default
         ${service.featured
           ? 'border-[rgba(183,206,20,0.35)] bg-[rgba(183,206,20,0.04)]'
-          : 'border-[#1E3050] bg-[#132238] hover:bg-[#1A2D47]'
+          : 'border-[var(--color-linea)] bg-[var(--color-grafito)] hover:bg-[var(--color-piedra)]'
         }
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
       `}
@@ -98,7 +98,7 @@ function ServiceCard({ service, index, visible }) {
       {/* Featured badge */}
       {service.featured && (
         <div
-          className="absolute -top-3 left-5 px-3 py-1 rounded-full text-[11px] font-display font-bold text-[#0E1C2D] bg-[#B7CE14]"
+          className="absolute -top-3 left-5 px-3 py-1 rounded-full text-[11px] font-display font-bold text-[var(--color-carbono)] bg-[var(--color-amber)]"
           aria-label="Servicio más popular"
         >
           Más solicitado
@@ -107,7 +107,7 @@ function ServiceCard({ service, index, visible }) {
 
       {/* Icon */}
       <div
-        className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[#B7CE14] ${
+        className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[var(--color-amber)] ${
           service.featured ? 'bg-[rgba(183,206,20,0.15)]' : 'bg-[rgba(183,206,20,0.08)]'
         }`}
       >
@@ -115,23 +115,23 @@ function ServiceCard({ service, index, visible }) {
       </div>
 
       {/* Name */}
-      <h3 className="font-display font-semibold text-[17px] text-[#F1EDEE] mb-2.5 leading-[1.3]">
+      <h3 className="font-display font-semibold text-[17px] text-[var(--color-crema)] mb-2.5 leading-[1.3]">
         {service.name}
       </h3>
 
       {/* Description */}
-      <p className="font-body text-[14px] text-[#8899AA] leading-[1.6] flex-1 mb-5">
+      <p className="font-body text-[14px] text-[var(--color-niebla)] leading-[1.6] flex-1 mb-5">
         {service.description}
       </p>
 
       {/* Result tag */}
       <div className="flex items-start gap-2">
-        <div className="w-4 h-4 shrink-0 mt-0.5 text-[#B7CE14]">
+        <div className="w-4 h-4 shrink-0 mt-0.5 text-[var(--color-amber)]">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M13.5 4.5L6.5 11.5L2.5 7.5"/>
           </svg>
         </div>
-        <span className="font-body text-[13px] text-[#B7CE14] leading-[1.5]">
+        <span className="font-body text-[13px] text-[var(--color-amber)] leading-[1.5]">
           {service.tag}
         </span>
       </div>
@@ -153,11 +153,11 @@ export default function Services() {
   return (
     <section
       id="servicios"
-      className="relative bg-[#0E1C2D] py-20 md:py-28 overflow-hidden"
+      className="relative bg-[var(--color-carbono)] py-20 md:py-28 overflow-hidden"
       aria-label="Nuestros servicios"
     >
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--color-linea)]" aria-hidden="true" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
 
@@ -167,16 +167,16 @@ export default function Services() {
           className={`mb-14 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         >
           {/* Decorative line */}
-          <div className="w-10 h-0.5 bg-[#B7CE14] mb-5" aria-hidden="true" />
+          <div className="w-10 h-0.5 bg-[var(--color-amber)] mb-5" aria-hidden="true" />
 
           <h2
-            className="font-display font-bold text-[#F1EDEE] max-w-[680px] mb-4"
+            className="font-display font-bold text-[var(--color-crema)] max-w-[680px] mb-4"
             style={{ fontSize: 'clamp(26px, 3.8vw, 40px)', lineHeight: '1.15' }}
           >
             EQKO AIgency no vende servicios de marketing. Construye la máquina que hace crecer tu negocio.
           </h2>
 
-          <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] max-w-[520px] leading-[1.7]">
+          <p className="font-body text-[16px] md:text-[17px] text-[var(--color-niebla)] max-w-[520px] leading-[1.7]">
             Cada componente está diseñado para conectarse con el siguiente. No son piezas sueltas.
           </p>
         </div>

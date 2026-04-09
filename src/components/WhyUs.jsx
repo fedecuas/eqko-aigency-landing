@@ -1,123 +1,114 @@
-﻿import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { Target, TrendingUp, ShieldCheck, Zap } from 'lucide-react';
 
-const differentiators = [
+const reasons = [
   {
-    number: '01',
-    title: 'Medimos lo que a ti te importa: clientes y dinero.',
-    text: 'Cada reporte incluye costo por lead, tasa de conversión y clientes generados. Sin métricas de vanidad.',
+    icon: <Target className="w-5 h-5" />,
+    title: 'Enfoque en Revenue',
+    desc: 'No medimos el éxito en clics, lo medimos en facturación y rentabilidad neta para tu negocio.'
   },
   {
-    number: '02',
-    title: 'Arrancamos en 5 días. No en 3 meses.',
-    text: 'En la segunda semana ya hay campañas activas. Porque la mejor forma de saber si algo funciona es probarlo.',
+    icon: <Zap className="w-5 h-5" />,
+    title: 'IA de Vanguardia',
+    desc: 'Implementamos agentes que trabajan 24/7, calificando y nutriendo tus leads sin descanso.'
   },
   {
-    number: '03',
-    title: 'Un equipo que conoce tu negocio.',
-    text: 'Tienes un estratega asignado que entiende tu modelo, tu mercado y tus objetivos. No hablas con ejecutivos de cuentas.',
+    icon: <TrendingUp className="w-5 h-5" />,
+    title: '增长 Predecible',
+    desc: 'Construimos sistemas que puedes escalar con solo mover una palanca. Sin contratar más gente.'
   },
   {
-    number: '04',
-    title: 'La IA ya está incluida desde el día uno.',
-    text: 'Las automatizaciones no son un upgrade de tier. Es la forma en que operamos.',
-  },
+    icon: <ShieldCheck className="w-5 h-5" />,
+    title: 'Transparencia Total',
+    desc: 'Dashboards en tiempo real. Sabes exactamente dónde está cada dólar de tu inversión.'
+  }
 ];
 
 export default function WhyUs() {
-  const [leftRef, leftVisible] = useIntersectionObserver({ threshold: 0.2 });
-  const [gridRef, gridVisible] = useIntersectionObserver({ threshold: 0.15 });
+  const [ref, visible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
     <section
-      id="diferencial"
-      className="relative bg-[#132238] py-20 md:py-28 overflow-hidden"
-      aria-label="Por qué elegirnos"
+      id="por-que-nosotros"
+      className="relative bg-[var(--color-carbono)] py-20 md:py-32 overflow-hidden"
+      aria-label="Por qué elegir EQKO AIgency"
     >
-      {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      {/* Dynamic light rays */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-20">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[120%] bg-[var(--color-amber)] blur-[120px] rotate-12 opacity-10" />
+        <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[120%] bg-[var(--color-amber)] blur-[120px] -rotate-12 opacity-10" />
+      </div>
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[40fr_60fr] gap-12 lg:gap-16 items-start">
-
-          {/* ── LEFT: Intro text ── */}
-          <div
-            ref={leftRef}
-            className={`transition-all duration-600 ${leftVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} lg:sticky lg:top-28`}
-          >
-            {/* Decorative line */}
-            <div className="w-10 h-0.5 bg-[#B7CE14] mb-5" aria-hidden="true" />
-
-            <h2
-              className="font-display font-bold text-[#F1EDEE] mb-5"
-              style={{ fontSize: 'clamp(26px, 3.6vw, 40px)', lineHeight: '1.15' }}
+        <div 
+          ref={ref}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+        >
+          {/* Header Area */}
+          <div className={`transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="w-12 h-1 bg-[var(--color-amber)] mb-8" aria-hidden="true" />
+            
+            <h2 
+              className="font-display font-bold text-[var(--color-crema)] mb-6"
+              style={{ fontSize: 'clamp(32px, 5vw, 56px)', lineHeight: '1' }}
             >
-              Hay cientos de agencias digitales. Aquí está la diferencia que importa.
+              No somos un gasto. <span className="block text-[var(--color-amber)]">Somos un activo.</span>
             </h2>
 
-            <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] leading-[1.7] mb-8">
-              No son promesas. Son compromisos que puedes medir.
+            <p className="font-body text-[18px] md:text-[20px] text-[var(--color-niebla)] leading-[1.6] max-w-[480px]">
+              Mientras las agencias tradicionales te venden "likes" y "alcance", nosotros construimos infraestructura tecnológica que genera ROI predecible.
             </p>
-
-            {/* CTA in left column */}
-            <a
-              href="#contacto"
-              className="
-                inline-flex items-center gap-2
-                font-display font-semibold text-[14px] text-[#B7CE14]
-                border border-[rgba(183,206,20,0.35)] hover:border-[#B7CE14]
-                hover:bg-[rgba(183,206,20,0.06)]
-                px-5 py-3 rounded-xl
-                transition-all duration-200
-              "
-            >
-              Agenda tu consultoría gratuita
-              <span aria-hidden="true">→</span>
-            </a>
           </div>
 
-          {/* ── RIGHT: Differentiators grid ── */}
-          <div
-            ref={gridRef}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
-          >
-            {differentiators.map((item, i) => (
-              <article
+          {/* Differentiators Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {reasons.map((reason, i) => (
+              <article 
                 key={i}
                 className={`
-                  relative p-6 rounded-2xl border border-[#1E3050]
-                  bg-[#0E1C2D] hover:bg-[#132238]
-                  transition-all duration-500 ease-out group cursor-default
-                  ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+                  p-6 rounded-2xl border border-[var(--color-linea)] bg-[var(--color-grafito)]/50 backdrop-blur-sm
+                  transition-all duration-700 hover:border-[var(--color-amber)]/30 group
+                  ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
-                style={{ transitionDelay: gridVisible ? `${i * 80}ms` : '0ms' }}
+                style={{ transitionDelay: visible ? `${i * 150}ms` : '0ms' }}
               >
-                {/* Number */}
-                <span
-                  className="font-display font-bold text-[#B7CE14] text-[14px] tracking-widest mb-3 block"
-                  aria-hidden="true"
-                >
-                  {item.number}
-                </span>
-
-                {/* Title */}
-                <h3 className="font-display font-semibold text-[16px] md:text-[17px] text-[#F1EDEE] mb-2.5 leading-[1.3]">
-                  {item.title}
+                <div className="w-10 h-10 rounded-xl bg-[rgba(183,206,20,0.1)] flex items-center justify-center text-[var(--color-amber)] mb-5 group-hover:scale-110 transition-transform">
+                  {reason.icon}
+                </div>
+                <h3 className="font-display font-bold text-[var(--color-crema)] text-[18px] mb-2 leading-tight">
+                  {reason.title}
                 </h3>
-
-                {/* Text */}
-                <p className="font-body text-[13px] md:text-[14px] text-[#8899AA] leading-[1.6]">
-                  {item.text}
+                <p className="font-body text-[14px] text-[var(--color-niebla)] leading-relaxed">
+                  {reason.desc}
                 </p>
-
-                {/* Amber bottom accent on hover */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl bg-[#B7CE14] opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                  aria-hidden="true"
-                />
               </article>
             ))}
           </div>
+        </div>
 
+        {/* Bottom Social Proof / Trust Area */}
+        <div className={`mt-24 pt-12 border-t border-[var(--color-linea)] transition-all duration-1000 delay-500 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-4">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[var(--color-carbono)] bg-[var(--color-piedra)] flex items-center justify-center text-[var(--color-amber)] text-[10px] font-bold">
+                    User
+                  </div>
+                ))}
+              </div>
+              <p className="font-body text-[14px] text-[var(--color-niebla)]">
+                <span className="text-[var(--color-crema)] font-bold">+50 negocios</span> escalando sus operaciones.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+               {/* Placeholders for logos if needed */}
+               <span className="font-display font-black text-[20px] text-[var(--color-crema)] tracking-tighter italic">FINTECH_CO</span>
+               <span className="font-display font-black text-[20px] text-[var(--color-crema)] tracking-tighter italic">RE_STORE</span>
+               <span className="font-display font-black text-[20px] text-[var(--color-crema)] tracking-tighter italic">AGRO_TECH</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

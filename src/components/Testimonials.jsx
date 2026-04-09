@@ -1,4 +1,4 @@
-﻿import { useIntersectionObserver, useCounterAnimation } from '../hooks/useIntersectionObserver';
+import { useIntersectionObserver, useCounterAnimation } from '../hooks/useIntersectionObserver';
 
 // Animated metric counter
 function MetricCounter({ value, suffix, prefix, label, visible, delay }) {
@@ -21,12 +21,12 @@ function MetricCounter({ value, suffix, prefix, label, visible, delay }) {
       `}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="font-display font-extrabold text-[#F1EDEE] mb-1.5" style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: '1' }}>
-        {prefix && <span className="text-[#B7CE14]">{prefix}</span>}
+      <div className="font-display font-extrabold text-[var(--color-crema)] mb-1.5" style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: '1' }}>
+        {prefix && <span className="text-[var(--color-amber)]">{prefix}</span>}
         {formatValue(count)}
-        {suffix && <span className="text-[#B7CE14]">{suffix}</span>}
+        {suffix && <span className="text-[var(--color-amber)]">{suffix}</span>}
       </div>
-      <p className="font-body text-[13px] text-[#8899AA] leading-[1.4] max-w-[130px]">
+      <p className="font-body text-[13px] text-[var(--color-niebla)] leading-[1.4] max-w-[130px]">
         {label}
       </p>
     </div>
@@ -67,13 +67,13 @@ const testimonials = [
   },
 ];
 
-const avatarColors = ['#B7CE14', '#8FA810', '#CDE015'];
+const avatarColors = ['var(--color-amber)', '#8FA810', '#CDE015'];
 
 function StarRating() {
   return (
     <div className="flex gap-0.5 mb-4" aria-label="5 de 5 estrellas">
       {[...Array(5)].map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#B7CE14" aria-hidden="true">
+        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="var(--color-amber)" aria-hidden="true">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
       ))}
@@ -85,8 +85,8 @@ function TestimonialCard({ testimonial, index, visible }) {
   return (
     <article
       className={`
-        flex flex-col p-6 rounded-2xl border border-[#1E3050]
-        bg-[#0E1C2D] hover:bg-[#132238]
+        flex flex-col p-6 rounded-2xl border border-[var(--color-linea)]
+        bg-[var(--color-carbono)] hover:bg-[var(--color-grafito)]
         transition-all duration-500 ease-out group cursor-default
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
       `}
@@ -95,24 +95,24 @@ function TestimonialCard({ testimonial, index, visible }) {
       <StarRating />
 
       {/* Quote */}
-      <blockquote className="font-body text-[14px] md:text-[15px] text-[#8899AA] leading-[1.7] flex-1 mb-5 italic">
+      <blockquote className="font-body text-[14px] md:text-[15px] text-[var(--color-niebla)] leading-[1.7] flex-1 mb-5 italic">
         "{testimonial.quote}"
       </blockquote>
 
       {/* Author */}
-      <div className="flex items-center gap-3 pt-5 border-t border-[#1E3050]">
+      <div className="flex items-center gap-3 pt-5 border-t border-[var(--color-linea)]">
         <div
-          className="w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-[12px] text-[#0E1C2D] shrink-0"
+          className="w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-[12px] text-[var(--color-carbono)] shrink-0"
           style={{ background: avatarColors[index % avatarColors.length] }}
           aria-hidden="true"
         >
           {testimonial.initials}
         </div>
         <div className="min-w-0">
-          <p className="font-display font-semibold text-[14px] text-[#F1EDEE] leading-none mb-0.5 truncate">
+          <p className="font-display font-semibold text-[14px] text-[var(--color-crema)] leading-none mb-0.5 truncate">
             {testimonial.name}
           </p>
-          <p className="font-body text-[12px] text-[#8899AA] truncate">
+          <p className="font-body text-[12px] text-[var(--color-niebla)] truncate">
             {testimonial.role} · {testimonial.company}
           </p>
         </div>
@@ -123,7 +123,7 @@ function TestimonialCard({ testimonial, index, visible }) {
         className="mt-4 px-3.5 py-2 rounded-lg"
         style={{ background: 'rgba(183,206,20,0.08)', border: '1px solid rgba(183,206,20,0.15)' }}
       >
-        <p className="font-display font-semibold text-[12px] text-[#B7CE14] flex items-center gap-1.5">
+        <p className="font-display font-semibold text-[12px] text-[var(--color-amber)] flex items-center gap-1.5">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
             <polyline points="17 6 23 6 23 12"/>
@@ -143,11 +143,11 @@ export default function Testimonials() {
   return (
     <section
       id="resultados"
-      className="relative bg-[#132238] py-20 md:py-28 overflow-hidden"
+      className="relative bg-[var(--color-grafito)] py-20 md:py-28 overflow-hidden"
       aria-label="Resultados y testimonios"
     >
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--color-linea)]" aria-hidden="true" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
 
@@ -157,7 +157,7 @@ export default function Testimonials() {
           className={`text-center mb-12 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         >
           <h2
-            className="font-display font-bold text-[#F1EDEE]"
+            className="font-display font-bold text-[var(--color-crema)]"
             style={{ fontSize: 'clamp(28px, 4vw, 40px)', lineHeight: '1.15' }}
           >
             Números reales de negocios reales.
@@ -170,7 +170,7 @@ export default function Testimonials() {
           className="relative mb-16"
         >
           <div
-            className="rounded-2xl border border-[#1E3050] bg-[#0E1C2D] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[#1E3050] overflow-hidden"
+            className="rounded-2xl border border-[var(--color-linea)] bg-[var(--color-carbono)] grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[var(--color-linea)] overflow-hidden"
             role="list"
             aria-label="Métricas de resultados"
           >

@@ -1,4 +1,4 @@
-﻿import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const steps = [
   {
@@ -60,11 +60,11 @@ export default function Process() {
   return (
     <section
       id="proceso"
-      className="relative bg-[#0E1C2D] py-20 md:py-28 overflow-hidden"
+      className="relative bg-[var(--color-carbono)] py-20 md:py-28 overflow-hidden"
       aria-label="Nuestro proceso"
     >
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--color-linea)]" aria-hidden="true" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
 
@@ -74,12 +74,12 @@ export default function Process() {
           className={`text-center mb-16 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         >
           <h2
-            className="font-display font-bold text-[#F1EDEE] mb-4"
+            className="font-display font-bold text-[var(--color-crema)] mb-4"
             style={{ fontSize: 'clamp(28px, 4vw, 40px)', lineHeight: '1.15' }}
           >
             Así se ve trabajar con EQKO AIgency.
           </h2>
-          <p className="font-body text-[16px] md:text-[17px] text-[#8899AA]">
+          <p className="font-body text-[16px] md:text-[17px] text-[var(--color-niebla)]">
             Simple. Rápido. Sin sorpresas.
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function Process() {
           {/* Desktop connector line */}
           <div
             className="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px"
-            style={{ borderTop: '1px dashed #1E3050', zIndex: 0 }}
+            style={{ borderTop: '1px dashed var(--color-linea)', zIndex: 0 }}
             aria-hidden="true"
           />
 
@@ -111,11 +111,11 @@ export default function Process() {
                 <div className="relative mb-6">
                   {/* Big decorative number (background) */}
                   <span
-                    className="absolute -top-2 -left-5 font-display font-bold select-none pointer-events-none"
+                    className="absolute -top-2 -left-5 font-display font-bold select-none pointer-events-none opacity-10"
                     style={{
                       fontSize: '80px',
                       lineHeight: '1',
-                      color: '#132238',
+                      color: 'var(--color-linea)',
                       zIndex: -1,
                     }}
                     aria-hidden="true"
@@ -125,32 +125,32 @@ export default function Process() {
 
                   {/* Icon circle */}
                   <div
-                    className="relative w-[52px] h-[52px] rounded-full flex items-center justify-center text-[#B7CE14] border border-[#1E3050] z-10"
-                    style={{ background: '#0E1C2D', boxShadow: '0 0 0 6px #0E1C2D' }}
+                    className="relative w-[52px] h-[52px] rounded-full flex items-center justify-center text-[var(--color-amber)] border border-[var(--color-linea)] z-10"
+                    style={{ background: 'var(--color-carbono)', boxShadow: '0 0 0 6px var(--color-carbono)' }}
                   >
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Step number label */}
-                <span className="font-display font-bold text-[12px] text-[#B7CE14] tracking-widest uppercase mb-2">
+                <span className="font-display font-bold text-[12px] text-[var(--color-amber)] tracking-widest uppercase mb-2">
                   {step.number}
                 </span>
 
                 {/* Title */}
-                <h3 className="font-display font-semibold text-[17px] text-[#F1EDEE] mb-3 leading-[1.3]">
+                <h3 className="font-display font-semibold text-[17px] text-[var(--color-crema)] mb-3 leading-[1.3]">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="font-body text-[14px] text-[#8899AA] leading-[1.6] mb-4 max-w-[220px]">
+                <p className="font-body text-[14px] text-[var(--color-niebla)] leading-[1.6] mb-4 max-w-[220px]">
                   {step.description}
                 </p>
 
                 {/* Duration badge */}
                 <span
-                  className="inline-flex items-center px-3 py-1 rounded-full font-body text-[12px] text-[#8899AA]"
-                  style={{ background: '#132238', border: '1px solid #1E3050' }}
+                  className="inline-flex items-center px-3 py-1 rounded-full font-body text-[12px] text-[var(--color-niebla)]"
+                  style={{ background: 'var(--color-grafito)', border: '1px solid var(--color-linea)' }}
                 >
                   {step.duration}
                 </span>
@@ -165,12 +165,12 @@ export default function Process() {
             href="#contacto"
             className="
               inline-flex items-center gap-2
-              font-display font-bold text-[15px] text-[#0E1C2D]
-              bg-[#B7CE14] hover:bg-[#8FA810]
+              font-display font-bold text-[15px] text-[var(--color-carbono)]
+              bg-[var(--color-amber)] hover:bg-[var(--color-amber)]/80
               px-7 py-4 rounded-xl
               transition-all duration-200
+              animate-pulse-cta
             "
-            style={{ animation: 'pulseCta 2s ease-in-out infinite' }}
           >
             Agenda tu consultoría gratuita →
           </a>

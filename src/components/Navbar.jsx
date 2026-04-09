@@ -1,4 +1,5 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import CalendlyTrigger from './CalendlyTrigger';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +45,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[rgba(19,34,56,0.90)] backdrop-blur-md border-b border-[#1E3050]'
+            ? 'bg-[var(--color-carbono)]/90 backdrop-blur-md border-b border-[var(--color-linea)]'
             : 'bg-transparent'
         }`}
         role="navigation"
@@ -69,7 +70,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
-                  className="font-body text-[17px] text-[#8899AA] hover:text-[#F1EDEE] transition-colors duration-200 cursor-pointer"
+                  className="font-body text-[17px] text-[var(--color-niebla)] hover:text-[var(--color-crema)] transition-colors duration-200 cursor-pointer"
                 >
                   {link.label}
                 </a>
@@ -78,22 +79,18 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex">
-              <a
-                href="#contacto"
-                onClick={(e) => { e.preventDefault(); handleLinkClick('#contacto'); }}
+              <CalendlyTrigger 
                 className="
-                  font-display font-semibold text-[14px] text-[#0E1C2D]
-                  bg-[#B7CE14] hover:bg-[#8FA810]
+                  font-display font-semibold text-[14px] text-[var(--color-carbono)]
+                  bg-[var(--color-amber)] hover:bg-[var(--color-amber)]/80
                   px-5 py-2.5 rounded-lg
                   transition-all duration-200
                   flex items-center gap-1.5
                   cursor-pointer
+                  border-none
                 "
-                aria-label="Agenda tu diagnóstico gratuito con EQKO AIgency"
-              >
-                Consultoría gratis
-                <span aria-hidden="true">→</span>
-              </a>
+                text="Consultoría gratis →"
+              />
             </div>
 
             {/* Mobile hamburger */}
@@ -104,17 +101,17 @@ export default function Navbar() {
               aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
               <span
-                className={`block w-6 h-0.5 bg-[#F1EDEE] transition-all duration-300 origin-center ${
+                className={`block w-6 h-0.5 bg-[var(--color-crema)] transition-all duration-300 origin-center ${
                   menuOpen ? 'rotate-45 translate-y-2' : ''
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-[#F1EDEE] transition-all duration-300 ${
+                className={`block w-6 h-0.5 bg-[var(--color-crema)] transition-all duration-300 ${
                   menuOpen ? 'opacity-0 scale-x-0' : ''
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-[#F1EDEE] transition-all duration-300 origin-center ${
+                className={`block w-6 h-0.5 bg-[var(--color-crema)] transition-all duration-300 origin-center ${
                   menuOpen ? '-rotate-45 -translate-y-2' : ''
                 }`}
               />
@@ -136,7 +133,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`md:hidden fixed top-0 right-0 h-full z-50 w-[280px] bg-[#132238] border-l border-[#1E3050] flex flex-col transition-transform duration-300 ease-out ${
+        className={`md:hidden fixed top-0 right-0 h-full z-50 w-[280px] bg-[var(--color-grafito)] border-l border-[var(--color-linea)] flex flex-col transition-transform duration-300 ease-out ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -144,11 +141,11 @@ export default function Navbar() {
         aria-label="Menú de navegación"
       >
         {/* Drawer header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#1E3050]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--color-linea)]">
           <img src="/logo.svg" alt="EQKO AIgency" className="h-8 w-auto" />
           <button
             onClick={() => setMenuOpen(false)}
-            className="w-8 h-8 flex items-center justify-center text-[#8899AA] hover:text-[#F1EDEE] transition-colors cursor-pointer bg-transparent border-none"
+            className="w-8 h-8 flex items-center justify-center text-[var(--color-niebla)] hover:text-[var(--color-crema)] transition-colors cursor-pointer bg-transparent border-none"
             aria-label="Cerrar menú"
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -165,8 +162,8 @@ export default function Navbar() {
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
               className={`
-                block font-body text-[16px] text-[#8899AA] hover:text-[#F1EDEE]
-                py-3.5 border-b border-[#1E3050] last:border-0
+                block font-body text-[16px] text-[var(--color-niebla)] hover:text-[var(--color-crema)]
+                py-3.5 border-b border-[var(--color-linea)] last:border-0
                 transition-all duration-200 cursor-pointer
                 ${menuOpen ? `opacity-100` : 'opacity-0'}
               `}
@@ -179,20 +176,18 @@ export default function Navbar() {
 
         {/* Drawer CTA */}
         <div className="px-6 mt-auto mb-8">
-          <a
-            href="#contacto"
-            onClick={(e) => { e.preventDefault(); handleLinkClick('#contacto'); }}
+          <CalendlyTrigger 
             className="
-              w-full font-display font-semibold text-[15px] text-[#0E1C2D]
-              bg-[#B7CE14] hover:bg-[#8FA810]
+              w-full font-display font-semibold text-[15px] text-[var(--color-carbono)]
+              bg-[var(--color-amber)] hover:bg-[var(--color-amber)]/80
               py-3.5 rounded-lg
               transition-all duration-200
               flex items-center justify-center gap-2
               cursor-pointer
+              border-none
             "
-          >
-            Consultoría gratis →
-          </a>
+            text="Consultoría gratis →"
+          />
         </div>
       </div>
     </>

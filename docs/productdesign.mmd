@@ -1,0 +1,47 @@
+graph TD
+    %% User Journey
+    subgraph User_Journey [User Journey]
+        Start((Landing)) --> Hero[Value Prop: ROI + AI]
+        Hero --> Problem[Agitation: High CAC / Low Conversion]
+        Problem --> Solution[Services: Complete System]
+        Solution --> Proof[Testimonials + Metrics]
+        Proof --> Trust[Why Us: 5-Day Setup]
+        Trust --> Action[Action: Calendly Booking / Lead Form]
+        Action --> Success((Consultation Booked))
+    end
+
+    %% Database Structure
+    subgraph Database [Proposed Supabase DB]
+        L[leads] --- |id| PK
+        L --- |name| TEXT
+        L --- |email| TEXT
+        L --- |company| TEXT
+        L --- |monthly_budget| NUMERIC
+        L --- |message| TEXT
+        L --- |status| ENUM[new, contacted, qualified, lost]
+    end
+
+    %% Component Architecture
+    subgraph UI_Components [UI Components]
+        App --> Nav[Navbar - Floating Glass]
+        App --> Main[Main Content]
+        App --> Foot[Footer - Minimal Dark]
+        
+        Main --> H[Hero - Animated Background]
+        Main --> P[Problem - PAS Framework]
+        Main --> S[Services - Grid Layout]
+        Main --> W[WhyUs - Differentiators]
+        Main --> Proc[Process - Step-by-step]
+        Main --> T[Testimonials - Social Proof]
+        Main --> F[FAQ - Accordion]
+        Main --> C[CTAFinal - Contact Form + Calendly Link]
+    end
+
+    %% Integrations
+    subgraph Integrations [External Systems]
+        Supabase[(Supabase DB)]
+        Calendly{Calendly Widget}
+        C --> Supabase
+        Nav -.-> Calendly
+        H -.-> Calendly
+    end

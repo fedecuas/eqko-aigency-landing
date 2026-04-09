@@ -1,149 +1,130 @@
-﻿import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
-const painPoints = [
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="8" x2="12" y2="12"/>
-        <line x1="12" y1="16" x2="12.01" y2="16"/>
-      </svg>
-    ),
-    title: 'Invisibilidad digital que cuesta ventas',
-    text: 'Sabes que tus competidores están captando clientes en línea que deberías estar ganando. Tu presencia existe, pero no convierte.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12 6 12 12 16 14"/>
-      </svg>
-    ),
-    title: 'Tiempo en tareas que no escalan',
-    text: 'Tu equipo responde WhatsApps a las 11pm. Los seguimientos se hacen tarde o no se hacen. Cada hora operativa es una hora que no va a crecer el negocio.',
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/>
-        <line x1="12" y1="17" x2="12.01" y2="17"/>
-      </svg>
-    ),
-    title: 'Agencias que cobran y desaparecen',
-    text: 'Ya pagaste al menos una vez por servicios que prometieron resultados y entregaron excusas. La desconfianza está justificada.',
-  },
-];
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { Users, Zap, ArrowUpRight } from 'lucide-react';
 
 export default function Problem() {
-  const [headerRef, headerVisible] = useIntersectionObserver({ threshold: 0.2 });
-  const [cardsRef, cardsVisible] = useIntersectionObserver({ threshold: 0.15 });
-  const [textRef, textVisible] = useIntersectionObserver({ threshold: 0.2 });
+  const [ref, visible] = useIntersectionObserver({ threshold: 0.2 });
+
+  const problems = [
+    {
+      title: "Caza de leads manual",
+      desc: "Tu equipo pierde el 70% del tiempo en prospección fría que no convierte.",
+      icon: <Users className="w-5 h-5" />
+    },
+    {
+      title: "Sistemas desconectados",
+      desc: "Tu data vive en silos. Pierdes oportunidades porque nadie sabe qué pasa con cada lead.",
+      icon: <Zap className="w-5 h-5" />
+    },
+    {
+      title: "Escalabilidad limitada",
+      desc: "Si quieres vender el doble, necesitas contratar el doble. El margen desaparece.",
+      icon: <ArrowUpRight className="w-5 h-5" />
+    }
+  ];
 
   return (
     <section
-      id="problema"
-      className="relative bg-[#132238] py-20 md:py-28 overflow-hidden"
-      aria-label="El problema"
+      id="el-problema"
+      className="relative bg-[var(--color-grafito)] py-20 md:py-32 overflow-hidden"
+      aria-label="El problema que resolvemos"
     >
-      {/* Subtle top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      {/* Background decoration */}
+      <div
+        className="absolute top-1/4 -left-20 w-[400px] h-[400px] rounded-full opacity-[0.03] blur-[120px] pointer-events-none"
+        style={{ background: 'var(--color-amber)' }}
+      />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-
-        {/* Header */}
-        <div
-          ref={headerRef}
-          className={`text-center mb-14 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+        <div 
+          ref={ref}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center"
         >
-          <h2
-            className="font-display font-bold text-[#F1EDEE] mx-auto max-w-[640px]"
-            style={{ fontSize: 'clamp(28px, 4vw, 40px)', lineHeight: '1.15' }}
-          >
-            Gastas en marketing. Pero no sabes si está funcionando.
-          </h2>
-        </div>
-
-        {/* Pain point cards */}
-        <div
-          ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16"
-        >
-          {painPoints.map((point, i) => (
-            <article
-              key={i}
-              className={`
-                relative p-6 rounded-2xl border border-[#1E3050]
-                bg-[#0E1C2D] hover:bg-[#1A2D47]
-                transition-all duration-300 ease-out cursor-default
-                group
-                ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
-              `}
-              style={{ transitionDelay: cardsVisible ? `${i * 100}ms` : '0ms', transitionDuration: '500ms' }}
+          {/* Left Side: Content */}
+          <div className={`transition-all duration-800 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <span className="inline-block font-display font-bold text-[var(--color-amber)] text-[13px] tracking-widest uppercase mb-4">
+              La Realidad del Mercado
+            </span>
+            
+            <h2 
+              className="font-display font-bold text-[var(--color-crema)] mb-6"
+              style={{ fontSize: 'clamp(30px, 4.5vw, 48px)', lineHeight: '1.1' }}
             >
-              {/* Icon */}
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-[#B7CE14]"
-                style={{ background: 'rgba(183,206,20,0.08)' }}
-              >
-                {point.icon}
+              La mayoría de las agencias te venden "más leads". <span className="text-[var(--color-niebla)]">Nosotros te vendemos "más libertad".</span>
+            </h2>
+
+            <p className="font-body text-[17px] md:text-[18px] text-[var(--color-niebla)] leading-[1.7] mb-10 max-w-[540px]">
+              El marketing tradicional está saturado. Los clientes ignoran los anuncios y los equipos comerciales están quemados. La IA no es una opción, es el nuevo estándar de eficiencia.
+            </p>
+
+            {/* Problem list */}
+            <div className="space-y-6">
+              {problems.map((item, i) => (
+                <div key={i} className="flex gap-4 p-4 rounded-xl border border-[var(--color-linea)] bg-[var(--color-piedra)]/40">
+                  <div className="w-10 h-10 shrink-0 rounded-lg bg-[rgba(183,206,20,0.1)] flex items-center justify-center text-[var(--color-amber)]">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-[var(--color-crema)] text-[16px] mb-1">{item.title}</h4>
+                    <p className="font-body text-[14px] text-[var(--color-niebla)] leading-normal">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Visual representation */}
+          <div className={`relative transition-all duration-800 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className="relative aspect-square md:aspect-video lg:aspect-square rounded-3xl overflow-hidden border border-[var(--color-linea)] group">
+              <div className="absolute inset-0 bg-[var(--color-carbono)]">
+                <div className="absolute inset-0 bg-dot-pattern opacity-10" />
+                
+                {/* Visual conceptualization of "Chaos to Order" */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-full h-full p-8 flex flex-col justify-center">
+                    <div className="space-y-4">
+                      {/* Animated lines or patterns could go here */}
+                      {[1, 2, 3, 4].map(i => (
+                        <div 
+                          key={i}
+                          className="h-12 w-full border border-[var(--color-linea)] rounded-lg flex items-center px-4 gap-3 bg-[rgba(255,255,255,0.02)]"
+                          style={{ marginLeft: `${i * 12}px`, opacity: 1 - (i * 0.15) }}
+                        >
+                          <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
+                          <div className="h-2 w-1/2 bg-[rgba(255,255,255,0.05)] rounded" />
+                        </div>
+                      ))}
+                      
+                      <div className="py-4 flex justify-center">
+                        <div className="px-6 py-2 rounded-full bg-[var(--color-amber)] text-[var(--color-carbono)] font-display font-bold text-[14px] shadow-[0_0_30px_rgba(183,206,20,0.3)]">
+                          OPTIMIZANDO CON EQKO AI
+                        </div>
+                      </div>
+
+                      {[1, 2].map(i => (
+                        <div 
+                          key={i}
+                          className="h-12 w-full border border-[var(--color-amber)]/20 rounded-lg flex items-center px-4 gap-3 bg-[rgba(183,206,20,0.03)]"
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[var(--color-amber)]" />
+                          <div className="h-2 w-3/4 bg-[var(--color-amber)]/10 rounded" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Title */}
-              <h3 className="font-display font-semibold text-[17px] text-[#F1EDEE] mb-2 leading-[1.3]">
-                {point.title}
-              </h3>
-
-              {/* Text */}
-              <p className="font-body text-[14px] text-[#8899AA] leading-[1.6]">
-                {point.text}
-              </p>
-
-              {/* Hover accent line */}
-              <div
-                className="absolute bottom-0 left-6 right-6 h-px bg-[#B7CE14] opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-                aria-hidden="true"
-              />
-            </article>
-          ))}
-        </div>
-
-        {/* Agitation copy block */}
-        <div
-          ref={textRef}
-          className={`max-w-[760px] mx-auto transition-all duration-600 ${textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-        >
-          <div
-            className="rounded-2xl p-8 md:p-10"
-            style={{ background: 'rgba(14,28,45,0.5)', border: '1px solid #1E3050' }}
-          >
-            <div className="space-y-4 mb-8">
-              <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] leading-[1.7]">
-                El problema no es que no hayas intentado crecer. El problema es que cada iniciativa funcionó en silos: las redes sin estrategia, los ads sin seguimiento, el seguimiento sin automatización.
-              </p>
-              <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] leading-[1.7]">
-                Mientras tanto, hay negocios de tu mismo sector que tienen pipelines llenos de prospectos calificados, sistemas que responden solos y equipos que solo hablan con quien ya está listo para comprar.
-              </p>
-              <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] leading-[1.7]">
-                No es magia. No es suerte. Y tampoco es presupuesto.
-              </p>
+              {/* Glass overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-carbono)] via-transparent to-transparent opacity-60" />
             </div>
 
-            {/* Highlighted conclusion */}
-            <div
-              className="pt-6 border-t border-[#1E3050]"
-            >
-              <p
-                className="font-display font-bold text-[#F1EDEE] leading-[1.3]"
-                style={{ fontSize: 'clamp(20px, 2.8vw, 26px)' }}
-              >
-                La diferencia no es que ellos tengan más presupuesto. La diferencia es que{' '}
-                <span className="text-[#B7CE14]">tienen un sistema</span>.
-              </p>
+            {/* Float badge */}
+            <div className="absolute -bottom-6 -right-6 md:right-8 p-5 bg-[var(--color-linea)] backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl max-w-[200px]">
+              <p className="font-display font-bold text-[24px] text-[var(--color-amber)] mb-0 leading-none">85%</p>
+              <p className="font-body text-[12px] text-[var(--color-niebla)] uppercase tracking-wider font-bold">Inoperatividad promedio</p>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

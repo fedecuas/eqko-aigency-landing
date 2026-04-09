@@ -1,10 +1,11 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import CalendlyTrigger from './CalendlyTrigger';
 
 // Mini avatar component
 function Avatar({ initials, color }) {
   return (
     <div
-      className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-display font-bold text-[#0E1C2D] -ml-2 first:ml-0 border-2 border-[#0E1C2D]"
+      className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-display font-bold text-[var(--color-carbono)] -ml-2 first:ml-0 border-2 border-[var(--color-carbono)]"
       style={{ background: color }}
       aria-hidden="true"
     >
@@ -20,27 +21,27 @@ function DashboardCard() {
       {/* Glow */}
       <div
         className="absolute inset-0 rounded-2xl blur-xl opacity-40"
-        style={{ background: 'radial-gradient(ellipse at center, #B7CE14 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, var(--color-amber) 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
       {/* Card */}
       <div
-        className="relative rounded-2xl border border-[#1E3050] overflow-hidden"
+        className="relative rounded-2xl border border-[var(--color-linea)] overflow-hidden"
         style={{
-          background: '#0E1C2D',
+          background: 'var(--color-carbono)',
           boxShadow: '0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(183,206,20,0.12)',
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-[#1E3050]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-linea)]">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#B7CE14]" />
-            <span className="font-display font-semibold text-[12px] text-[#F1EDEE]">Panel EQKO</span>
+            <div className="w-2 h-2 rounded-full bg-[var(--color-amber)]" />
+            <span className="font-display font-semibold text-[12px] text-[var(--color-crema)]">Panel EQKO</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-            <span className="text-[10px] font-body text-[#8899AA]">Live</span>
+            <span className="text-[10px] font-body text-[var(--color-niebla)]">Live</span>
           </div>
         </div>
 
@@ -48,12 +49,12 @@ function DashboardCard() {
         <div className="px-4 pt-3 pb-4 space-y-2.5">
 
           {/* Lime — Leads */}
-          <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'rgba(183,206,20,0.08)', border: '1px solid rgba(183,206,20,0.2)' }}>
+          <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'var(--color-amber-subtle)', border: '1px solid rgba(183,206,20,0.2)' }}>
             <div>
-              <p className="text-[10px] font-body text-[#8899AA] uppercase tracking-wider mb-0.5">Leads este mes</p>
-              <p className="font-display font-bold text-[22px] text-[#F1EDEE] leading-none">127</p>
+              <p className="text-[10px] font-body text-[var(--color-niebla)] uppercase tracking-wider mb-0.5">Leads este mes</p>
+              <p className="font-display font-bold text-[22px] text-[var(--color-crema)] leading-none">127</p>
             </div>
-            <div className="flex items-center gap-1 bg-[rgba(183,206,20,0.15)] text-[#B7CE14] px-2 py-1 rounded-lg">
+            <div className="flex items-center gap-1 bg-[rgba(183,206,20,0.15)] text-[var(--color-amber)] px-2 py-1 rounded-lg">
               <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M2 9L6 4L10 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -64,8 +65,8 @@ function DashboardCard() {
           {/* Cyan — ROAS */}
           <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'rgba(40,171,227,0.08)', border: '1px solid rgba(40,171,227,0.2)' }}>
             <div>
-              <p className="text-[10px] font-body text-[#8899AA] uppercase tracking-wider mb-0.5">ROAS actual</p>
-              <p className="font-display font-bold text-[22px] text-[#F1EDEE] leading-none">4.8<span className="text-[14px] text-[#8899AA] font-normal">x</span></p>
+              <p className="text-[10px] font-body text-[var(--color-niebla)] uppercase tracking-wider mb-0.5">ROAS actual</p>
+              <p className="font-display font-bold text-[22px] text-[var(--color-crema)] leading-none">4.8<span className="text-[14px] text-[var(--color-niebla)] font-normal">x</span></p>
             </div>
             <div className="flex items-end gap-0.5 h-7">
               {[3, 5, 4, 7, 6, 8, 9].map((h, i) => (
@@ -84,14 +85,14 @@ function DashboardCard() {
           {/* Purple — Prospectos */}
           <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'rgba(79,67,148,0.12)', border: '1px solid rgba(79,67,148,0.3)' }}>
             <div>
-              <p className="text-[10px] font-body text-[#8899AA] uppercase tracking-wider mb-0.5">Prospectos calificados</p>
-              <p className="font-display font-bold text-[22px] text-[#F1EDEE] leading-none">89</p>
+              <p className="text-[10px] font-body text-[var(--color-niebla)] uppercase tracking-wider mb-0.5">Prospectos calificados</p>
+              <p className="font-display font-bold text-[22px] text-[var(--color-crema)] leading-none">89</p>
             </div>
             <div className="flex flex-col items-end gap-1">
-              <div className="w-20 h-1.5 rounded-full overflow-hidden" style={{ background: '#1E3050' }}>
+              <div className="w-20 h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--color-linea)' }}>
                 <div className="h-full rounded-full" style={{ width: '70%', background: 'linear-gradient(90deg, #4F4394, #28ABE3)' }} />
               </div>
-              <span className="text-[9px] font-body text-[#8899AA]">70% del objetivo</span>
+              <span className="text-[9px] font-body text-[var(--color-niebla)]">70% del objetivo</span>
             </div>
           </div>
 
@@ -107,16 +108,12 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0E1C2D]"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[var(--color-carbono)]"
       aria-label="Sección principal"
     >
       {/* Background: dot grid */}
       <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #1E3050 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-        }}
+        className="absolute inset-0 opacity-40 bg-dot-pattern"
         aria-hidden="true"
       />
 
@@ -144,7 +141,7 @@ export default function Hero() {
       {/* Top gradient fade */}
       <div
         className="absolute top-0 left-0 right-0 h-24"
-        style={{ background: 'linear-gradient(to bottom, #0E1C2D, transparent)' }}
+        style={{ background: 'linear-gradient(to bottom, var(--color-carbono), transparent)' }}
         aria-hidden="true"
       />
 
@@ -163,12 +160,12 @@ export default function Hero() {
               <span
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[12px] font-display font-semibold uppercase tracking-widest"
                 style={{
-                  background: 'rgba(183,206,20,0.1)',
+                  background: 'var(--color-amber-subtle)',
                   border: '1px solid rgba(183,206,20,0.25)',
-                  color: '#B7CE14',
+                  color: 'var(--color-amber)',
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#B7CE14]" aria-hidden="true" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-amber)]" aria-hidden="true" />
                 Agencia de Marketing Digital con IA · México
               </span>
             </div>
@@ -179,11 +176,11 @@ export default function Hero() {
               style={{ transitionDelay: '100ms' }}
             >
               <h1
-                className="font-display font-extrabold text-[#F1EDEE] leading-[1.05] tracking-[-0.03em]"
+                className="font-display font-extrabold text-[var(--color-crema)] leading-[1.05] tracking-[-0.03em]"
                 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)' }}
               >
                 Tu competencia ya está{' '}
-                <span className="text-[#B7CE14]">creciendo con IA</span>.{' '}
+                <span className="text-[var(--color-amber)]">creciendo con IA</span>.{' '}
                 Tú también puedes.
               </h1>
             </div>
@@ -193,7 +190,7 @@ export default function Hero() {
               className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: '200ms' }}
             >
-              <p className="font-body text-[17px] md:text-[18px] text-[#8899AA] leading-[1.7] max-w-[540px]">
+              <p className="font-body text-[17px] md:text-[18px] text-[var(--color-niebla)] leading-[1.7] max-w-[540px]">
                 EQKO AIgency diseña y opera el sistema completo de marketing digital y automatización que convierte desconocidos en clientes — sin que tengas que tocar una sola herramienta.
               </p>
             </div>
@@ -203,19 +200,14 @@ export default function Hero() {
               className={`flex flex-col sm:flex-row gap-3 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: '300ms' }}
             >
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 font-display font-bold text-[15px] text-[#0E1C2D] bg-[#B7CE14] hover:bg-[#8FA810] px-7 py-4 rounded-xl transition-all duration-200 cursor-pointer"
-                style={{ animation: 'pulseCta 2s ease-in-out infinite' }}
-                aria-label="Agenda tu consultoría gratuita con EQKO AIgency"
-              >
-                Agenda tu consultoría gratuita
-                <span aria-hidden="true">→</span>
-              </a>
+              <CalendlyTrigger 
+                className="inline-flex items-center justify-center gap-2 font-display font-bold text-[15px] text-[var(--color-carbono)] bg-[var(--color-amber)] hover:bg-[var(--color-amber-dark)] px-7 py-4 rounded-xl transition-all duration-200 cursor-pointer animate-pulse-cta border-none"
+                text="Agenda tu consultoría gratuita →"
+              />
 
               <a
                 href="#proceso"
-                className="inline-flex items-center justify-center gap-2 font-body text-[15px] text-[#8899AA] hover:text-[#F1EDEE] px-6 py-4 rounded-xl border border-[#1E3050] hover:border-[#8899AA] transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 font-body text-[15px] text-[var(--color-niebla)] hover:text-[var(--color-crema)] px-6 py-4 rounded-xl border border-[var(--color-linea)] hover:border-[var(--color-niebla)] transition-all duration-200"
                 aria-label="Ver cómo funciona EQKO AIgency"
               >
                 Ver cómo funciona
@@ -227,10 +219,10 @@ export default function Hero() {
               className={`flex items-center gap-1.5 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: '350ms' }}
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8899AA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-[var(--color-niebla)]">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
-              <p className="font-body text-[13px] text-[#8899AA]">Sin costo · Sin compromiso · Respondemos en menos de 24 hs</p>
+              <p className="font-body text-[13px] text-[var(--color-niebla)]">Sin costo · Sin compromiso · Respondemos en menos de 24 hs</p>
             </div>
 
             {/* Social proof */}
@@ -239,12 +231,12 @@ export default function Hero() {
               style={{ transitionDelay: '400ms' }}
             >
               <div className="flex items-center" role="img" aria-label="Fotos de clientes">
-                <Avatar initials="MG" color="#B7CE14" />
+                <Avatar initials="MG" color="var(--color-amber)" />
                 <Avatar initials="DP" color="#28ABE3" />
                 <Avatar initials="CR" color="#4F4394" />
               </div>
-              <p className="font-body text-[14px] text-[#8899AA]">
-                <span className="text-[#F1EDEE] font-semibold">143 negocios</span>{' '}
+              <p className="font-body text-[14px] text-[var(--color-niebla)]">
+                <span className="text-[var(--color-crema)] font-semibold">143 negocios</span>{' '}
                 de México y LATAM ya tienen su sistema funcionando
               </p>
             </div>
@@ -259,7 +251,7 @@ export default function Hero() {
             {/* Ground glow under panda */}
             <div
               className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[75%] h-[50%] rounded-full blur-3xl opacity-20 pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse at center, #B7CE14 0%, transparent 70%)' }}
+              style={{ background: 'radial-gradient(ellipse at center, var(--color-amber) 0%, transparent 70%)' }}
               aria-hidden="true"
             />
 
@@ -293,11 +285,11 @@ export default function Hero() {
               }}
             >
               <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M2 9L6 4L10 9" stroke="#B7CE14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 9L6 4L10 9" stroke="var(--color-amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <div>
-                <p className="font-display font-bold text-[15px] text-[#B7CE14] leading-none">+380%</p>
-                <p className="font-body text-[10px] text-[#8899AA] leading-none mt-0.5">ROI promedio</p>
+                <p className="font-display font-bold text-[15px] text-[var(--color-amber)] leading-none">+380%</p>
+                <p className="font-body text-[10px] text-[var(--color-niebla)] leading-none mt-0.5">ROI promedio</p>
               </div>
             </div>
 
@@ -313,7 +305,7 @@ export default function Hero() {
               <div className="w-2 h-2 rounded-full bg-[#28ABE3] animate-pulse" />
               <div>
                 <p className="font-display font-bold text-[13px] text-[#28ABE3] leading-none">IA activa</p>
-                <p className="font-body text-[10px] text-[#8899AA] leading-none mt-0.5">24 / 7</p>
+                <p className="font-body text-[10px] text-[var(--color-niebla)] leading-none mt-0.5">24 / 7</p>
               </div>
             </div>
 
@@ -325,7 +317,7 @@ export default function Hero() {
       {/* Bottom gradient fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-24"
-        style={{ background: 'linear-gradient(to top, #0E1C2D, transparent)' }}
+        style={{ background: 'linear-gradient(to top, var(--color-carbono), transparent)' }}
         aria-hidden="true"
       />
     </section>

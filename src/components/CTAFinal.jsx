@@ -1,153 +1,148 @@
-﻿import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useState } from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { Mail, MessageSquare, CheckCircle, ArrowRight } from 'lucide-react';
+import CalendlyTrigger from './CalendlyTrigger';
 
 export default function CTAFinal() {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.25 });
+  const [ref, visible] = useIntersectionObserver({ threshold: 0.1 });
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('loading');
+    // Simulated submission
+    setTimeout(() => {
+      setStatus('success');
+    }, 1500);
+  };
 
   return (
-    <section
+    <section 
       id="contacto"
-      className="relative bg-[#0E1C2D] py-24 md:py-32 overflow-hidden"
-      aria-label="Llamada a la acción final"
+      className="relative bg-[var(--color-grafito)] py-20 md:py-32 overflow-hidden"
+      aria-label="Formulario de contacto final"
     >
-      {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-5" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-amber)] blur-[150px] opacity-[0.03] rounded-full pointer-events-none" />
 
-      {/* Dot grid background */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #1E3050 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Amber center glow */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(183,206,20,0.12) 0%, transparent 60%)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Decorative ring */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5"
-        style={{ border: '1px solid #B7CE14' }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full opacity-[0.03]"
-        style={{ border: '1px solid #B7CE14' }}
-        aria-hidden="true"
-      />
-
-      {/* Content */}
-      <div
-        ref={ref}
-        className="relative z-10 max-w-[720px] mx-auto px-5 md:px-8 text-center"
-      >
-
-        {/* Eyebrow */}
-        <div
-          className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '0ms' }}
+      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
+        <div 
+          ref={ref}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center"
         >
-          <span
-            className="inline-block px-3.5 py-1.5 rounded-full text-[11px] font-display font-bold uppercase tracking-widest mb-6"
-            style={{
-              background: 'rgba(183,206,20,0.1)',
-              border: '1px solid rgba(183,206,20,0.25)',
-              color: '#B7CE14',
-            }}
-          >
-            Sin costo · Sin compromiso
-          </span>
-        </div>
-
-        {/* Headline */}
-        <div
-          className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '100ms' }}
-        >
-          <h2
-            className="font-display font-extrabold text-[#F1EDEE] mb-6"
-            style={{ fontSize: 'clamp(28px, 4.5vw, 48px)', lineHeight: '1.1', letterSpacing: '-0.02em' }}
-          >
-            Si sigues haciendo lo mismo, los resultados van a ser los mismos.
-          </h2>
-        </div>
-
-        {/* Body text */}
-        <div
-          className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '200ms' }}
-        >
-          <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] leading-[1.7] mb-10">
-            El mercado no está esperando. Tus competidores tampoco. Una llamada de 30 minutos es suficiente para saber si podemos ayudarte — y si no podemos, te lo decimos en esa misma llamada.
-          </p>
-        </div>
-
-        {/* CTA button */}
-        <div
-          className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '300ms' }}
-        >
-          <a
-            href="mailto:hola@eqko.mx?subject=Diagnóstico gratuito"
-            className="
-              inline-flex items-center justify-center gap-2.5
-              font-display font-bold text-[16px] md:text-[17px] text-[#0E1C2D]
-              bg-[#B7CE14] hover:bg-[#8FA810]
-              px-8 py-5 rounded-xl
-              transition-all duration-200
-              w-full sm:w-auto
-            "
-            style={{ animation: isVisible ? 'pulseCta 2s ease-in-out infinite' : 'none' }}
-            aria-label="Quiero mi consultoría gratuita con EQKO AIgency"
-          >
-            Quiero mi consultoría gratuita
-            <span className="text-[20px]" aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        {/* Guarantee text */}
-        <div
-          className={`mt-5 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '400ms' }}
-        >
-          <div className="flex items-center justify-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8899AA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            <p className="font-body text-[13px] text-[#8899AA] text-center">
-              Sin costo. Sin compromiso. Si en 30 minutos no ves valor concreto, no tienes ninguna obligación.
+          {/* ── LEFT: Content ── */}
+          <div className={`transition-all duration-800 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <h2 
+              className="font-display font-bold text-[var(--color-crema)] mb-6"
+              style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', lineHeight: '1' }}
+            >
+              ¿Listo para <span className="text-[var(--color-amber)]">EQKO-system?</span>
+            </h2>
+            
+            <p className="font-body text-[18px] md:text-[20px] text-[var(--color-niebla)] leading-[1.6] mb-10 max-w-[500px]">
+              No pierdas más tiempo en tareas manuales. Hablemos sobre cómo la IA puede transformar tu funnel de ventas hoy mismo.
             </p>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-[var(--color-piedra)] border border-[var(--color-linea)] flex items-center justify-center text-[var(--color-amber)]">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-body text-[14px] text-[var(--color-niebla)]">Escríbenos a</p>
+                  <p className="font-display font-bold text-[var(--color-crema)] text-[18px]">contacto@eqko.ai</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-[var(--color-piedra)] border border-[var(--color-linea)] flex items-center justify-center text-[var(--color-amber)]">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-body text-[14px] text-[var(--color-niebla)]">WhatsApp</p>
+                  <p className="font-display font-bold text-[var(--color-crema)] text-[18px]">+54 9 11 1234 5678</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── RIGHT: Form ── */}
+          <div className={`transition-all duration-800 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className="relative p-8 md:p-10 rounded-3xl bg-[var(--color-carbono)] border border-[var(--color-linea)] shadow-2xl overflow-hidden">
+              {/* Submission status overlays */}
+              {status === 'success' && (
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center bg-[var(--color-carbono)] p-8 animate-in fade-in zoom-in duration-300">
+                  <div className="w-16 h-16 rounded-full bg-[rgba(183,206,20,0.1)] flex items-center justify-center text-[var(--color-amber)] mb-6">
+                    <CheckCircle className="w-10 h-10" />
+                  </div>
+                  <h3 className="font-display font-bold text-[var(--color-crema)] text-2xl mb-2">¡Recibido!</h3>
+                  <p className="font-body text-[var(--color-niebla)]">Nuestro equipo de arquitectura IA te contactará en menos de 24 horas.</p>
+                </div>
+              )}
+
+              <h3 className="font-display font-bold text-[var(--color-crema)] text-[24px] mb-8">Reserva tu sesión estratégica</h3>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="font-display font-bold text-[12px] text-[var(--color-niebla)] uppercase tracking-wider">Nombre Completo</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    required
+                    className="w-full bg-[var(--color-piedra)] border border-[var(--color-linea)] rounded-xl px-5 py-4 text-[var(--color-crema)] focus:outline-none focus:border-[var(--color-amber)] transition-colors"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="email" className="font-display font-bold text-[12px] text-[var(--color-niebla)] uppercase tracking-wider">Correo Corporativo</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required
+                    className="w-full bg-[var(--color-piedra)] border border-[var(--color-linea)] rounded-xl px-5 py-4 text-[var(--color-crema)] focus:outline-none focus:border-[var(--color-amber)] transition-colors"
+                    placeholder="email@tuempresa.com"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="font-display font-bold text-[12px] text-[var(--color-niebla)] uppercase tracking-wider">¿En qué te podemos ayudar?</label>
+                  <textarea 
+                    id="message" 
+                    rows="4"
+                    required
+                    className="w-full bg-[var(--color-piedra)] border border-[var(--color-linea)] rounded-xl px-5 py-4 text-[var(--color-crema)] focus:outline-none focus:border-[var(--color-amber)] transition-colors resize-none"
+                    placeholder="Cuéntanos sobre tu negocio..."
+                  />
+                </div>
+
+                <button 
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="w-full bg-[var(--color-amber)] hover:bg-[var(--color-amber)]/90 text-[var(--color-carbono)] font-display font-black py-5 rounded-xl transition-all active:scale-[0.98] shadow-[0_10px_30px_rgba(183,206,20,0.3)] flex items-center justify-center gap-3 disabled:opacity-70 mb-6"
+                >
+                  {status === 'loading' ? (
+                    'ENVIANDO...'
+                  ) : (
+                    <>
+                      COMENZAR TRANSFORMACIÓN
+                      <ArrowRight className="w-5 h-5" />
+                    </>
+                  )}
+                </button>
+
+                <div className="text-center px-4">
+                  <p className="font-body text-[13px] text-[var(--color-niebla)] mb-2">¿Prefieres elegir tu horario ahora?</p>
+                  <CalendlyTrigger 
+                    className="text-[var(--color-amber)] font-display font-bold text-[14px] hover:underline cursor-pointer bg-transparent border-none p-0"
+                    text="Agendar sesión por Calendly →"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-
-        {/* Contact details */}
-        <div
-          className={`mt-8 pt-8 border-t border-[#1E3050] flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '500ms' }}
-        >
-          <a
-            href="mailto:hola@eqko.mx"
-            className="flex items-center gap-2 font-body text-[14px] text-[#8899AA] hover:text-[#F1EDEE] transition-colors"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            hola@eqko.mx
-          </a>
-          <span className="hidden sm:block text-[#1E3050]">·</span>
-          <span className="font-body text-[13px] text-[#8899AA]">
-            Respondemos en menos de 24 horas
-          </span>
-        </div>
-
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const faqs = [
@@ -34,7 +34,7 @@ function FAQItem({ faq, index, visible }) {
   return (
     <div
       className={`
-        border border-[#1E3050] rounded-2xl overflow-hidden
+        border border-[var(--color-linea)] rounded-2xl overflow-hidden
         transition-all duration-500 ease-out
         ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
       `}
@@ -44,21 +44,21 @@ function FAQItem({ faq, index, visible }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer bg-transparent border-none"
         aria-expanded={open}
-        style={{ background: open ? 'rgba(183,206,20,0.04)' : '#132238' }}
+        style={{ background: open ? 'rgba(183,206,20,0.04)' : 'var(--color-grafito)' }}
       >
-        <span className="font-display font-semibold text-[15px] md:text-[16px] text-[#F1EDEE] leading-[1.3]">
+        <span className="font-display font-semibold text-[15px] md:text-[16px] text-[var(--color-crema)] leading-[1.3]">
           {faq.question}
         </span>
         <span
           className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-300"
           style={{
-            background: open ? '#B7CE14' : 'rgba(183,206,20,0.1)',
+            background: open ? 'var(--color-amber)' : 'rgba(183,206,20,0.1)',
             transform: open ? 'rotate(45deg)' : 'rotate(0deg)',
           }}
           aria-hidden="true"
         >
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M6 2v8M2 6h8" stroke={open ? '#0E1C2D' : '#B7CE14'} strokeWidth="1.8" strokeLinecap="round"/>
+            <path d="M6 2v8M2 6h8" stroke={open ? 'var(--color-carbono)' : 'var(--color-amber)'} strokeWidth="1.8" strokeLinecap="round"/>
           </svg>
         </span>
       </button>
@@ -67,7 +67,7 @@ function FAQItem({ faq, index, visible }) {
         className="overflow-hidden transition-all duration-300 ease-out"
         style={{ maxHeight: open ? '300px' : '0px', opacity: open ? 1 : 0 }}
       >
-        <p className="px-6 pb-5 font-body text-[14px] md:text-[15px] text-[#8899AA] leading-[1.7]">
+        <p className="px-6 pb-5 font-body text-[14px] md:text-[15px] text-[var(--color-niebla)] leading-[1.7]">
           {faq.answer}
         </p>
       </div>
@@ -82,11 +82,11 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative bg-[#0E1C2D] py-20 md:py-28 overflow-hidden"
+      className="relative bg-[var(--color-carbono)] py-20 md:py-28 overflow-hidden"
       aria-label="Preguntas frecuentes"
     >
       {/* Top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[#1E3050]" aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--color-linea)]" aria-hidden="true" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
 
@@ -95,14 +95,14 @@ export default function FAQ() {
           ref={headerRef}
           className={`max-w-[640px] mb-12 transition-all duration-600 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         >
-          <div className="w-10 h-0.5 bg-[#B7CE14] mb-5" aria-hidden="true" />
+          <div className="w-10 h-0.5 bg-[var(--color-amber)] mb-5" aria-hidden="true" />
           <h2
-            className="font-display font-bold text-[#F1EDEE] mb-4"
+            className="font-display font-bold text-[var(--color-crema)] mb-4"
             style={{ fontSize: 'clamp(26px, 3.8vw, 40px)', lineHeight: '1.15' }}
           >
             Preguntas frecuentes
           </h2>
-          <p className="font-body text-[16px] md:text-[17px] text-[#8899AA] leading-[1.7]">
+          <p className="font-body text-[16px] md:text-[17px] text-[var(--color-niebla)] leading-[1.7]">
             Todo lo que necesitás saber antes de agendar tu diagnóstico.
           </p>
         </div>
@@ -121,11 +121,11 @@ export default function FAQ() {
         <div
           className={`mt-12 transition-all duration-600 delay-300 ${listVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
-          <p className="font-body text-[15px] text-[#8899AA] mb-4">
+          <p className="font-body text-[15px] text-[var(--color-niebla)] mb-4">
             ¿Tienes alguna otra pregunta?{' '}
             <a
-              href="mailto:hola@pixelagents.com"
-              className="text-[#B7CE14] hover:underline transition-colors"
+              href="mailto:contacto@eqko.ai"
+              className="text-[var(--color-amber)] hover:underline transition-colors"
             >
               Escríbenos directamente.
             </a>
@@ -134,12 +134,12 @@ export default function FAQ() {
             href="#contacto"
             className="
               inline-flex items-center gap-2
-              font-display font-bold text-[15px] text-[#0E1C2D]
-              bg-[#B7CE14] hover:bg-[#8FA810]
+              font-display font-bold text-[15px] text-[var(--color-carbono)]
+              bg-[var(--color-amber)] hover:bg-[var(--color-amber)]/80
               px-7 py-4 rounded-xl
               transition-all duration-200
+              animate-pulse-cta
             "
-            style={{ animation: 'pulseCta 2s ease-in-out infinite' }}
           >
             Agenda tu consultoría gratuita →
           </a>

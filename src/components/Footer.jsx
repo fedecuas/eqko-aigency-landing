@@ -1,4 +1,6 @@
-﻿export default function Footer() {
+import CalendlyTrigger from './CalendlyTrigger';
+
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
@@ -21,8 +23,7 @@
 
   return (
     <footer
-      className="relative py-14 md:py-16"
-      style={{ background: '#080F18', borderTop: '1px solid #1E3050' }}
+      className="relative py-14 md:py-16 bg-[var(--color-carbono)] border-t border-[var(--color-linea)]"
       role="contentinfo"
       aria-label="Pie de página EQKO AIgency"
     >
@@ -36,20 +37,20 @@
             <a href="#" aria-label="EQKO AIgency - volver al inicio">
               <img src="/logo.svg" alt="EQKO AIgency" className="h-10 w-auto" />
             </a>
-            <p className="font-body text-[14px] text-[#8899AA] max-w-[240px] leading-[1.6]">
+            <p className="font-body text-[14px] text-[var(--color-niebla)] max-w-[240px] leading-[1.6]">
               EQKO AIgency — Sistemas que hacen crecer negocios.
             </p>
 
             {/* Social proof mini */}
             <div className="flex items-center gap-2 mt-1">
               <div className="w-1.5 h-1.5 rounded-full bg-[#4ADE80]" aria-hidden="true" />
-              <span className="font-body text-[12px] text-[#8899AA]">143 negocios activos en México y LATAM</span>
+              <span className="font-body text-[12px] text-[var(--color-niebla)]">143 negocios activos en México y LATAM</span>
             </div>
           </div>
 
           {/* ── Column 2: Links ── */}
           <nav aria-label="Links del footer">
-            <p className="font-display font-semibold text-[12px] text-[#F1EDEE] uppercase tracking-widest mb-4">
+            <p className="font-display font-semibold text-[12px] text-[var(--color-crema)] uppercase tracking-widest mb-4">
               Navegación
             </p>
             <ul className="flex flex-col gap-2.5">
@@ -58,7 +59,7 @@
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="font-body text-[14px] text-[#8899AA] hover:text-[#F1EDEE] transition-colors duration-200"
+                    className="font-body text-[14px] text-[var(--color-niebla)] hover:text-[var(--color-crema)] transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -69,50 +70,49 @@
 
           {/* ── Column 3: Contact ── */}
           <div>
-            <p className="font-display font-semibold text-[12px] text-[#F1EDEE] uppercase tracking-widest mb-4">
+            <p className="font-display font-semibold text-[12px] text-[var(--color-crema)] uppercase tracking-widest mb-4">
               Contacto
             </p>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:hola@eqko.mx"
-                className="flex items-center gap-2 font-body text-[14px] text-[#8899AA] hover:text-[#B7CE14] transition-colors duration-200"
+                href="mailto:contacto@eqko.ai"
+                className="flex items-center gap-2 font-body text-[14px] text-[var(--color-niebla)] hover:text-[var(--color-amber)] transition-colors duration-200"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
                 </svg>
-                hola@eqko.mx
+                contacto@eqko.ai
               </a>
 
-              <a
-                href="#contacto"
-                onClick={(e) => handleLinkClick(e, '#contacto')}
+              <CalendlyTrigger 
                 className="
                   inline-flex items-center gap-2
-                  font-display font-semibold text-[13px] text-[#0E1C2D]
-                  bg-[#B7CE14] hover:bg-[#8FA810]
+                  font-display font-semibold text-[13px] text-[var(--color-carbono)]
+                  bg-[var(--color-amber)] hover:bg-[var(--color-amber)]/80
                   px-4 py-2.5 rounded-lg
                   transition-all duration-200
                   w-fit
+                  border-none
+                  cursor-pointer
                 "
-              >
-                Consultoría gratis →
-              </a>
+                text="Consultoría gratis →"
+              />
             </div>
           </div>
 
         </div>
 
         {/* Divider */}
-        <div className="border-t border-[#1E3050] pt-6">
+        <div className="border-t border-[var(--color-linea)] pt-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="font-body text-[12px] text-[#8899AA]">
+            <p className="font-body text-[12px] text-[var(--color-niebla)]">
               © {currentYear} EQKO AIgency. Todos los derechos reservados.
             </p>
             <div className="flex items-center gap-1">
-              <span className="font-body text-[12px] text-[#8899AA]">Hecho con</span>
-              <span className="text-[#B7CE14] text-[13px]">♦</span>
-              <span className="font-body text-[12px] text-[#8899AA]">para negocios que quieren crecer.</span>
+              <span className="font-body text-[12px] text-[var(--color-niebla)]">Hecho con</span>
+              <span className="text-[var(--color-amber)] text-[13px]">♦</span>
+              <span className="font-body text-[12px] text-[var(--color-niebla)]">para negocios que quieren crecer.</span>
             </div>
           </div>
         </div>
