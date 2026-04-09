@@ -34,10 +34,10 @@ export default function CTAFinal() {
           {/* ── LEFT: Content ── */}
           <div className={`transition-all duration-800 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h2 
-              className="font-display font-bold text-[var(--color-crema)] mb-6"
-              style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', lineHeight: '1' }}
+              className="font-display font-bold text-[var(--color-crema)] mb-6 flex flex-wrap items-center gap-x-4"
+              style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', lineHeight: '1.1' }}
             >
-              ¿Listo para <span className="text-[var(--color-amber)]">EQKO-system?</span>
+              ¿Listo para <img src="/logo.svg" alt="EQKO" className="h-[1.1em] w-auto inline-block" />?
             </h2>
             
             <p className="font-body text-[18px] md:text-[20px] text-[var(--color-niebla)] leading-[1.6] mb-10 max-w-[500px]">
