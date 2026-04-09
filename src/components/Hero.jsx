@@ -236,7 +236,7 @@ export default function Hero() {
                 <Avatar initials="CR" color="#4F4394" />
               </div>
               <p className="font-body text-[14px] text-[var(--color-niebla)]">
-                <span className="text-[var(--color-crema)] font-semibold">143 negocios</span>{' '}
+                <span className="text-[var(--color-crema)] font-semibold">+20 negocios</span>{' '}
                 de México y LATAM ya tienen su sistema funcionando
               </p>
             </div>

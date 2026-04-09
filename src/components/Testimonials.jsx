@@ -34,9 +34,9 @@ function MetricCounter({ value, suffix, prefix, label, visible, delay }) {
 }
 
 const metrics = [
-  { value: '143', prefix: '', suffix: '', label: 'Negocios activos en México y LATAM', delay: 0 },
+  { value: '20', prefix: '+', suffix: '', label: 'Negocios activos en MEX, EUA, UE y LATAM', delay: 0 },
   { value: '380', prefix: '+', suffix: '%', label: 'ROI promedio en paquete completo', delay: 100 },
-  { value: '11', prefix: '', suffix: ' días', label: 'Hasta primeros leads', delay: 200 },
+  { value: '10', prefix: '', suffix: ' días', label: 'Hasta primeros leads', delay: 200 },
   { value: '60', prefix: '', suffix: ' hs/mes', label: 'Recuperadas por automatización', delay: 300 },
 ];
 

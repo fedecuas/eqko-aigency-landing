@@ -124,7 +124,7 @@ export default function FAQ() {
           <p className="font-body text-[15px] text-[var(--color-niebla)] mb-4">
             ¿Tienes alguna otra pregunta?{' '}
             <a
-              href="mailto:contacto@eqko.ai"
+              href="mailto:hola@eqko.tech"
               className="text-[var(--color-amber)] hover:underline transition-colors"
             >
               Escríbenos directamente.
