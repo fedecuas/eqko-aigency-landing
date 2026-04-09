@@ -1,0 +1,4 @@
+Soy el robot de GitHub y estoy intentando entrar en public_html.
+Si ves este archivo, ¡la ruta 'public_html/' funcionó!
+Versión: v1.10
+Hora local: 2026-04-09 16:02:44
