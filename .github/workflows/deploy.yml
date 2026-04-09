@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: public_html/
+          server-dir: domains/eqko.tech/public_html/
           protocol: ftp
           # Nivel de log para ver qué está pasando exactamente
           log-level: verbose
