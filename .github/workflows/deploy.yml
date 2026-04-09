@@ -31,12 +31,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: domains/eqko.tech/public_html/
-          protocol: ftp
-          # Nivel de log para ver qué está pasando exactamente
-          log-level: verbose
-          # Excluimos archivos innecesarios en el servidor final
+          local-dir: dist
+          server-dir: domains/eqko.tech/public_html
           exclude: |
             **/.git*
             **/.github*
