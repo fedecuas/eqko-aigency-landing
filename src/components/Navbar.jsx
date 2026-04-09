@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +44,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[rgba(26,25,23,0.90)] backdrop-blur-md border-b border-[#2E2C2A]'
+            ? 'bg-[rgba(19,34,56,0.90)] backdrop-blur-md border-b border-[#1E3050]'
             : 'bg-transparent'
         }`}
         role="navigation"
@@ -59,7 +59,7 @@ export default function Navbar() {
               className="flex items-center gap-2 leading-none"
               aria-label="EQKO AIgency - inicio"
             >
-              <img src="/logo.svg" alt="EQKO AIgency" className="h-8 w-auto" />
+              <img src="/logo.svg" alt="EQKO AIgency" className="h-10 w-auto" />
             </a>
 
             {/* Desktop nav links */}
@@ -69,7 +69,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
-                  className="font-body text-[15px] text-[#9C9490] hover:text-[#F2EDE8] transition-colors duration-200 cursor-pointer"
+                  className="font-body text-[15px] text-[#8899AA] hover:text-[#F1EDEE] transition-colors duration-200 cursor-pointer"
                 >
                   {link.label}
                 </a>
@@ -82,8 +82,8 @@ export default function Navbar() {
                 href="#contacto"
                 onClick={(e) => { e.preventDefault(); handleLinkClick('#contacto'); }}
                 className="
-                  font-display font-semibold text-[14px] text-[#0F0E0D]
-                  bg-[#E8A020] hover:bg-[#C4821A]
+                  font-display font-semibold text-[14px] text-[#0E1C2D]
+                  bg-[#BB5624] hover:bg-[#9A4118]
                   px-5 py-2.5 rounded-lg
                   transition-all duration-200
                   flex items-center gap-1.5
@@ -104,17 +104,17 @@ export default function Navbar() {
               aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
               <span
-                className={`block w-6 h-0.5 bg-[#F2EDE8] transition-all duration-300 origin-center ${
+                className={`block w-6 h-0.5 bg-[#F1EDEE] transition-all duration-300 origin-center ${
                   menuOpen ? 'rotate-45 translate-y-2' : ''
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-[#F2EDE8] transition-all duration-300 ${
+                className={`block w-6 h-0.5 bg-[#F1EDEE] transition-all duration-300 ${
                   menuOpen ? 'opacity-0 scale-x-0' : ''
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-[#F2EDE8] transition-all duration-300 origin-center ${
+                className={`block w-6 h-0.5 bg-[#F1EDEE] transition-all duration-300 origin-center ${
                   menuOpen ? '-rotate-45 -translate-y-2' : ''
                 }`}
               />
@@ -129,14 +129,14 @@ export default function Navbar() {
         className={`md:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
-        style={{ background: 'rgba(15,14,13,0.85)', backdropFilter: 'blur(6px)' }}
+        style={{ background: 'rgba(14,28,45,0.85)', backdropFilter: 'blur(6px)' }}
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
       />
 
       {/* Mobile drawer */}
       <div
-        className={`md:hidden fixed top-0 right-0 h-full z-50 w-[280px] bg-[#1A1917] border-l border-[#2E2C2A] flex flex-col transition-transform duration-300 ease-out ${
+        className={`md:hidden fixed top-0 right-0 h-full z-50 w-[280px] bg-[#132238] border-l border-[#1E3050] flex flex-col transition-transform duration-300 ease-out ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -144,11 +144,11 @@ export default function Navbar() {
         aria-label="Menú de navegación"
       >
         {/* Drawer header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#2E2C2A]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[#1E3050]">
           <img src="/logo.svg" alt="EQKO AIgency" className="h-8 w-auto" />
           <button
             onClick={() => setMenuOpen(false)}
-            className="w-8 h-8 flex items-center justify-center text-[#9C9490] hover:text-[#F2EDE8] transition-colors cursor-pointer bg-transparent border-none"
+            className="w-8 h-8 flex items-center justify-center text-[#8899AA] hover:text-[#F1EDEE] transition-colors cursor-pointer bg-transparent border-none"
             aria-label="Cerrar menú"
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -165,8 +165,8 @@ export default function Navbar() {
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
               className={`
-                block font-body text-[16px] text-[#9C9490] hover:text-[#F2EDE8]
-                py-3.5 border-b border-[#2E2C2A] last:border-0
+                block font-body text-[16px] text-[#8899AA] hover:text-[#F1EDEE]
+                py-3.5 border-b border-[#1E3050] last:border-0
                 transition-all duration-200 cursor-pointer
                 ${menuOpen ? `opacity-100` : 'opacity-0'}
               `}
@@ -183,8 +183,8 @@ export default function Navbar() {
             href="#contacto"
             onClick={(e) => { e.preventDefault(); handleLinkClick('#contacto'); }}
             className="
-              w-full font-display font-semibold text-[15px] text-[#0F0E0D]
-              bg-[#E8A020] hover:bg-[#C4821A]
+              w-full font-display font-semibold text-[15px] text-[#0E1C2D]
+              bg-[#BB5624] hover:bg-[#9A4118]
               py-3.5 rounded-lg
               transition-all duration-200
               flex items-center justify-center gap-2

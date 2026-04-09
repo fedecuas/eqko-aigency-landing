@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -7,17 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        carbono: '#0F0E0D',
-        grafito: '#1A1917',
-        piedra: '#242220',
-        crema: '#F2EDE8',
-        niebla: '#9C9490',
-        linea: '#2E2C2A',
+        carbono: '#0E1C2D',
+        grafito: '#132238',
+        piedra: '#1A2D47',
+        crema: '#F1EDEE',
+        niebla: '#8899AA',
+        linea: '#1E3050',
         amber: {
-          DEFAULT: '#E8A020',
-          dark: '#C4821A',
-          light: '#FFC84D',
-          subtle: 'rgba(232,160,32,0.08)',
+          DEFAULT: '#BB5624',
+          dark: '#9A4118',
+          light: '#D4682E',
+          subtle: 'rgba(187,86,36,0.08)',
         },
       },
       fontFamily: {
@@ -41,9 +41,9 @@ export default {
         'display-medium': '600',
       },
       backgroundImage: {
-        'dot-grid': 'radial-gradient(circle, #2E2C2A 1px, transparent 1px)',
-        'amber-radial': 'radial-gradient(ellipse at right center, rgba(232,160,32,0.12) 0%, transparent 60%)',
-        'amber-center': 'radial-gradient(ellipse at center, rgba(232,160,32,0.10) 0%, transparent 70%)',
+        'dot-grid': 'radial-gradient(circle, #1E3050 1px, transparent 1px)',
+        'amber-radial': 'radial-gradient(ellipse at right center, rgba(187,86,36,0.12) 0%, transparent 60%)',
+        'amber-center': 'radial-gradient(ellipse at center, rgba(187,86,36,0.10) 0%, transparent 70%)',
       },
       backgroundSize: {
         'dot-grid': '32px 32px',
@@ -59,8 +59,8 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         pulseCta: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(232, 160, 32, 0.4)' },
-          '50%': { boxShadow: '0 0 0 12px rgba(232, 160, 32, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(187, 86, 36, 0.4)' },
+          '50%': { boxShadow: '0 0 0 12px rgba(187, 86, 36, 0)' },
         },
       },
       transitionTimingFunction: {
@@ -70,7 +70,7 @@ export default {
         'xs': '4px',
       },
       borderColor: {
-        DEFAULT: '#2E2C2A',
+        DEFAULT: '#1E3050',
       },
     },
   },

@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar';
+﻿import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Services from './components/Services';
@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0F0E0D] text-[#F2EDE8] font-body">
+    <div className="min-h-screen bg-[#0E1C2D] text-[#F1EDEE] font-body">
       {/* Navigation */}
       <Navbar />
 

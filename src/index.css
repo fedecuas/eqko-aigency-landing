@@ -1,4 +1,4 @@
-/* =========================================
+﻿/* =========================================
    GOOGLE FONTS IMPORT — must be first
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap');
@@ -15,17 +15,17 @@
    ========================================= */
 :root {
   /* Colors */
-  --color-carbono: #0F0E0D;
-  --color-grafito: #1A1917;
-  --color-piedra: #242220;
-  --color-crema: #F2EDE8;
-  --color-niebla: #9C9490;
-  --color-linea: #2E2C2A;
-  --color-amber: #E8A020;
-  --color-amber-dark: #C4821A;
-  --color-amber-light: #FFC84D;
-  --color-amber-subtle: rgba(232, 160, 32, 0.08);
-  --color-footer: #0A0908;
+  --color-carbono: #0E1C2D;
+  --color-grafito: #132238;
+  --color-piedra: #1A2D47;
+  --color-crema: #F1EDEE;
+  --color-niebla: #8899AA;
+  --color-linea: #1E3050;
+  --color-amber: #BB5624;
+  --color-amber-dark: #9A4118;
+  --color-amber-light: #D4682E;
+  --color-amber-subtle: rgba(187, 86, 36, 0.08);
+  --color-footer: #080F18;
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', sans-serif;
@@ -108,7 +108,7 @@ a {
    SELECTION
    ========================================= */
 ::selection {
-  background: rgba(232, 160, 32, 0.25);
+  background: rgba(187, 86, 36, 0.25);
   color: var(--color-crema);
 }
 
@@ -128,10 +128,10 @@ a {
 
 @keyframes pulseCta {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(232, 160, 32, 0.4);
+    box-shadow: 0 0 0 0 rgba(187, 86, 36, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(232, 160, 32, 0);
+    box-shadow: 0 0 0 12px rgba(187, 86, 36, 0);
   }
 }
 
@@ -184,16 +184,16 @@ a {
    BACKGROUND PATTERNS
    ========================================= */
 .bg-dot-pattern {
-  background-image: radial-gradient(circle, #2E2C2A 1px, transparent 1px);
+  background-image: radial-gradient(circle, #1E3050 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 .bg-amber-glow-right {
-  background-image: radial-gradient(ellipse at 85% 50%, rgba(232,160,32,0.12) 0%, transparent 55%);
+  background-image: radial-gradient(ellipse at 85% 50%, rgba(187,86,36,0.12) 0%, transparent 55%);
 }
 
 .bg-amber-glow-center {
-  background-image: radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.10) 0%, transparent 65%);
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(187,86,36,0.10) 0%, transparent 65%);
 }
 
 /* =========================================
