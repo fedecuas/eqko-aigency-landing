@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import CTAFinal from './components/CTAFinal';
 import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }

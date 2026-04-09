@@ -15,87 +15,133 @@ function Avatar({ initials, color }) {
 }
 
 // Dashboard metric card — colorful palette
+// Animated metric bar component for the panel
+function AnimatedBar({ height, color, delay }) {
+  return (
+    <div 
+      className="w-1.5 rounded-full transition-all duration-1000 ease-in-out"
+      style={{ 
+        height: '0px', 
+        animation: `grow-height 1.5s ease-out ${delay}ms forwards`,
+        background: color,
+        boxShadow: `0 0 10px ${color}44`,
+        '--final-height': `${height}%`
+      }}
+    />
+  );
+}
+
 function DashboardCard() {
   return (
-    <div className="relative w-full">
-      {/* Glow */}
-      <div
-        className="absolute inset-0 rounded-2xl blur-xl opacity-40"
-        style={{ background: 'radial-gradient(ellipse at center, var(--color-amber) 0%, transparent 70%)' }}
-        aria-hidden="true"
-      />
-
-      {/* Card */}
-      <div
-        className="relative rounded-2xl border border-[var(--color-linea)] overflow-hidden"
-        style={{
-          background: 'var(--color-carbono)',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(183,206,20,0.12)',
-        }}
+    <div className="group animate-brand-float w-full max-w-[680px]">
+      <div 
+        className="relative perspective-1000 transition-all duration-1000 ease-out space-tilt group-hover:rotate-0 group-hover:scale-[1.02]"
+        style={{ transformStyle: 'preserve-3d' }}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-linea)]">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[var(--color-amber)]" />
-            <span className="font-display font-semibold text-[12px] text-[var(--color-crema)]">Panel EQKO</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
-            <span className="text-[10px] font-body text-[var(--color-niebla)]">Live</span>
-          </div>
-        </div>
+        {/* Layered Background Glows (Multi-color Aura) */}
+        <div className="absolute -inset-10 bg-[var(--color-amber)]/20 rounded-full blur-[120px] opacity-30 group-hover:opacity-50 transition-opacity" aria-hidden="true" />
+        <div className="absolute -inset-20 bg-[#28ABE3]/5 rounded-full blur-[150px] opacity-10 pointer-events-none" aria-hidden="true" />
+        
+        {/* Main Glass Vessel */}
+        <div
+          className="relative rounded-[32px] overflow-hidden border border-white/10 backdrop-blur-[30px]"
+          style={{
+            background: 'linear-gradient(135deg, rgba(14,28,45,0.92) 0%, rgba(19,34,56,0.98) 100%)',
+            boxShadow: `
+              0 50px 100px -20px rgba(0,0,0,0.8),
+              inset 0 0 0 1px rgba(255,255,255,0.08),
+              0 0 60px -15px var(--color-amber-subtle)
+            `,
+          }}
+        >
+          {/* Top Edge Highlight */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-        {/* Metrics */}
-        <div className="px-4 pt-3 pb-4 space-y-2.5">
-
-          {/* Lime — Leads */}
-          <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'var(--color-amber-subtle)', border: '1px solid rgba(183,206,20,0.2)' }}>
-            <div>
-              <p className="text-[10px] font-body text-[var(--color-niebla)] uppercase tracking-wider mb-0.5">Leads este mes</p>
-              <p className="font-display font-bold text-[22px] text-[var(--color-crema)] leading-none">127</p>
-            </div>
-            <div className="flex items-center gap-1 bg-[rgba(183,206,20,0.15)] text-[var(--color-amber)] px-2 py-1 rounded-lg">
-              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M2 9L6 4L10 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span className="font-display font-semibold text-[12px]">+43%</span>
-            </div>
-          </div>
-
-          {/* Cyan — ROAS */}
-          <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'rgba(40,171,227,0.08)', border: '1px solid rgba(40,171,227,0.2)' }}>
-            <div>
-              <p className="text-[10px] font-body text-[var(--color-niebla)] uppercase tracking-wider mb-0.5">ROAS actual</p>
-              <p className="font-display font-bold text-[22px] text-[var(--color-crema)] leading-none">4.8<span className="text-[14px] text-[var(--color-niebla)] font-normal">x</span></p>
-            </div>
-            <div className="flex items-end gap-0.5 h-7">
-              {[3, 5, 4, 7, 6, 8, 9].map((h, i) => (
-                <div
-                  key={i}
-                  className="w-1.5 rounded-sm"
-                  style={{
-                    height: `${h * 2.5}px`,
-                    background: i === 6 ? '#28ABE3' : 'rgba(40,171,227,0.25)',
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Purple — Prospectos */}
-          <div className="flex items-center justify-between p-3 rounded-xl" style={{ background: 'rgba(79,67,148,0.12)', border: '1px solid rgba(79,67,148,0.3)' }}>
-            <div>
-              <p className="text-[10px] font-body text-[var(--color-niebla)] uppercase tracking-wider mb-0.5">Prospectos calificados</p>
-              <p className="font-display font-bold text-[22px] text-[var(--color-crema)] leading-none">89</p>
-            </div>
-            <div className="flex flex-col items-end gap-1">
-              <div className="w-20 h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--color-linea)' }}>
-                <div className="h-full rounded-full" style={{ width: '70%', background: 'linear-gradient(90deg, #4F4394, #28ABE3)' }} />
+          {/* Header Area */}
+          <div className="flex items-center justify-between px-8 py-6 border-b border-white/5 bg-white/5">
+            <div className="flex items-center gap-3.5">
+              <div className="relative">
+                <div className="w-3.5 h-3.5 rounded-full bg-[var(--color-amber)] animate-pulse" />
+                <div className="absolute inset-0 w-3.5 h-3.5 rounded-full bg-[var(--color-amber)] blur-[6px] animate-ping" />
               </div>
-              <span className="text-[9px] font-body text-[var(--color-niebla)]">70% del objetivo</span>
+              <span className="font-display font-bold text-xl tracking-tight text-[var(--color-crema)]">EQKO | INTEL ENGINE</span>
+            </div>
+            
+            {/* Integrated IA Status */}
+            <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-[#28ABE3]/10 border border-[#28ABE3]/30">
+              <span className="w-2 h-2 rounded-full bg-[#28ABE3] animate-pulse" />
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#28ABE3] leading-none">IA Activa</span>
+                <span className="text-[9px] text-[var(--color-niebla)] font-medium mt-1 leading-none">OPERANDO 24/7</span>
+              </div>
             </div>
           </div>
 
+          {/* Body Content: Spacious Grid */}
+          <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Column 1: Core Performance */}
+            <div className="space-y-6">
+              {/* Leads */}
+              <div className="relative p-6 rounded-2xl bg-white/[0.03] border border-white/[0.05] group/item overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-[var(--color-amber)]" />
+                <p className="text-[11px] font-bold text-[var(--color-niebla)] uppercase tracking-widest mb-2 opacity-70">Leads Generados</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-display font-black text-[var(--color-crema)] tabular-nums">127</span>
+                  <span className="text-[14px] font-bold text-[#4ADE80] tabular-nums">+43.2%</span>
+                </div>
+              </div>
+
+              {/* ROAS Wave */}
+              <div className="relative p-6 rounded-2xl bg-white/[0.03] border border-white/[0.05]">
+                <div className="flex justify-between items-center mb-6">
+                  <p className="text-[11px] font-bold text-[var(--color-niebla)] uppercase tracking-widest opacity-70">ROAS / Rendimiento</p>
+                  <p className="text-2xl font-display font-black text-[var(--color-crema)] tabular-nums">4.8x</p>
+                </div>
+                <div className="flex items-end justify-between h-16 w-full gap-1 px-1">
+                  {[35, 55, 40, 75, 50, 85, 70, 100, 80, 95, 65, 110].map((h, i) => (
+                    <AnimatedBar 
+                      key={i} 
+                      height={h} 
+                      color={i >= 9 ? 'var(--color-amber)' : 'rgba(255,255,255,0.15)'} 
+                      delay={i * 80} 
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2: Advanced ROI & Funnel */}
+            <div className="space-y-6 flex flex-col justify-between">
+              {/* ROI Badge (Formerly Floating) */}
+              <div className="p-8 h-full min-h-[160px] rounded-2xl bg-[var(--color-amber)]/5 border border-[var(--color-amber)]/20 flex flex-col items-center justify-center text-center group-hover:bg-[var(--color-amber)]/10 transition-colors overflow-hidden">
+                <div className="flex items-center gap-3 mb-2">
+                  <svg width="24" height="24" viewBox="0 0 12 12" fill="none" className="text-[var(--color-amber)]">
+                    <path d="M2 9L6 4L10 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-5xl font-display font-black text-[var(--color-amber)] tracking-tighter tabular-nums">+380%</span>
+                </div>
+                <p className="text-[12px] font-bold text-[var(--color-niebla)] uppercase tracking-widest">ROI Promedio</p>
+              </div>
+
+              {/* Funnel Progress */}
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.05]">
+                <div className="flex justify-between text-[11px] font-bold mb-3">
+                  <span className="text-[var(--color-niebla)] uppercase tracking-widest">Optimización de Funnel</span>
+                  <span className="text-[var(--color-amber)]">89%</span>
+                </div>
+                <div className="h-4 w-full rounded-full bg-white/5 border border-white/5 overflow-hidden p-1">
+                   <div 
+                    className="h-full bg-gradient-to-r from-[var(--color-amber-dark)] to-[var(--color-amber)] rounded-full transition-all duration-1000 relative shadow-[0_0_20px_var(--color-amber)]"
+                    style={{ width: '89%' }}
+                   >
+                     <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] animate-shimmer bg-[length:200%_100%]" />
+                   </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -243,72 +289,22 @@ export default function Hero() {
 
           </div>
 
-          {/* ── RIGHT: Panda + Dashboard ── */}
+          {/* ── RIGHT: Visual Composition ── */}
           <div
-            className={`relative flex items-end justify-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: '200ms', minHeight: '520px' }}
+            className={`relative flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '200ms', minHeight: '650px' }}
           >
-            {/* Ground glow under panda */}
+            {/* Ground glow under composition */}
             <div
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[75%] h-[50%] rounded-full blur-3xl opacity-20 pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse at center, var(--color-amber) 0%, transparent 70%)' }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[80%] rounded-full blur-[120px] opacity-10 pointer-events-none"
+              style={{ background: 'radial-gradient(circle, var(--color-amber) 0%, transparent 70%)' }}
               aria-hidden="true"
             />
 
-            {/* Panda — positioned to the right, taking full height */}
-            <img
-              src="/panda.png"
-              alt="EQKO AIgency — Agente de IA"
-              className="relative z-10 w-full max-w-[340px] md:max-w-[400px] drop-shadow-2xl"
-              style={{
-                filter: 'drop-shadow(0 20px 60px rgba(183,206,20,0.25))',
-                marginBottom: '20px',
-                marginLeft: 'auto',
-              }}
-            />
-
-            {/* Dashboard card — bottom left, overlapping panda */}
-            <div
-              className="absolute bottom-0 left-0 z-20 w-[230px] md:w-[270px]"
-              style={{ transform: 'rotate(-2deg)' }}
-            >
+            {/* Main Visual: Enlarged Dashboard Panel */}
+            <div className="relative w-full z-20 flex justify-center lg:justify-end">
               <DashboardCard />
             </div>
-
-            {/* Badge: ROI +380% — top right */}
-            <div
-              className="absolute top-8 right-0 z-30 flex items-center gap-2 px-3 py-2 rounded-xl"
-              style={{
-                background: 'rgba(183,206,20,0.12)',
-                border: '1px solid rgba(183,206,20,0.35)',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M2 9L6 4L10 9" stroke="var(--color-amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <div>
-                <p className="font-display font-bold text-[15px] text-[var(--color-amber)] leading-none">+380%</p>
-                <p className="font-body text-[10px] text-[var(--color-niebla)] leading-none mt-0.5">ROI promedio</p>
-              </div>
-            </div>
-
-            {/* Badge: IA activa 24/7 — mid right */}
-            <div
-              className="absolute top-1/2 -translate-y-1/2 right-0 z-30 flex items-center gap-2 px-3 py-2 rounded-xl"
-              style={{
-                background: 'rgba(40,171,227,0.1)',
-                border: '1px solid rgba(40,171,227,0.3)',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <div className="w-2 h-2 rounded-full bg-[#28ABE3] animate-pulse" />
-              <div>
-                <p className="font-display font-bold text-[13px] text-[#28ABE3] leading-none">IA activa</p>
-                <p className="font-body text-[10px] text-[var(--color-niebla)] leading-none mt-0.5">24 / 7</p>
-              </div>
-            </div>
-
           </div>
 
         </div>

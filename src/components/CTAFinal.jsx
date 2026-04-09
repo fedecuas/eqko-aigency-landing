@@ -1,19 +1,34 @@
 import { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { Mail, MessageSquare, CheckCircle, ArrowRight } from 'lucide-react';
+import { Mail, CheckCircle, ArrowRight } from 'lucide-react';
 import CalendlyTrigger from './CalendlyTrigger';
+import { supabase } from '../lib/supabase';
 
 export default function CTAFinal() {
   const [ref, visible] = useIntersectionObserver({ threshold: 0.1 });
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    // Simulated submission
-    setTimeout(() => {
+    
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([{ name, email, message, status: 'nuevo' }]);
+
+      if (error) throw error;
       setStatus('success');
-    }, 1500);
+    } catch (err) {
+      console.error('Error submitting lead:', err);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
@@ -34,10 +49,13 @@ export default function CTAFinal() {
           {/* ── LEFT: Content ── */}
           <div className={`transition-all duration-800 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h2 
-              className="font-display font-bold text-[var(--color-crema)] mb-6 flex flex-wrap items-center gap-x-4"
-              style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', lineHeight: '1.1' }}
+              className="font-display font-bold text-[var(--color-crema)] mb-10 leading-[1.1]"
+              style={{ fontSize: 'clamp(40px, 6vw, 84px)' }}
             >
-              ¿Listo para <img src="/logo.svg" alt="EQKO" className="h-[1.1em] w-auto inline-block" />?
+              ¿Listo para <br />
+              <span className="inline-block mt-4 animate-brand-float">
+                <img src="/logo.svg" alt="EQKO" className="h-[1.2em] w-auto" />
+              </span> ?
             </h2>
             
             <p className="font-body text-[18px] md:text-[20px] text-[var(--color-niebla)] leading-[1.6] mb-10 max-w-[500px]">
@@ -63,7 +81,7 @@ export default function CTAFinal() {
                 </div>
                 <div>
                   <p className="text-[var(--color-niebla)] text-sm mb-0.5 font-body">WhatsApp Directo</p>
-                  <p className="font-display font-bold text-[var(--color-crema)] text-[18px]">+52 55 8530 0838</p>
+                  <p className="font-display font-bold text-[var(--color-crema)] text-[18px]">+52 56 5915 5222</p>
                 </div>
               </div>
             </div>
@@ -91,6 +109,7 @@ export default function CTAFinal() {
                   <input 
                     type="text" 
                     id="name" 
+                    name="name"
                     required
                     className="w-full bg-[var(--color-piedra)] border border-[var(--color-linea)] rounded-xl px-5 py-4 text-[var(--color-crema)] focus:outline-none focus:border-[var(--color-amber)] transition-colors"
                     placeholder="Tu nombre"
@@ -102,6 +121,7 @@ export default function CTAFinal() {
                   <input 
                     type="email" 
                     id="email" 
+                    name="email"
                     required
                     className="w-full bg-[var(--color-piedra)] border border-[var(--color-linea)] rounded-xl px-5 py-4 text-[var(--color-crema)] focus:outline-none focus:border-[var(--color-amber)] transition-colors"
                     placeholder="email@tuempresa.com"
@@ -112,6 +132,7 @@ export default function CTAFinal() {
                   <label htmlFor="message" className="font-display font-bold text-[12px] text-[var(--color-niebla)] uppercase tracking-wider">¿En qué te podemos ayudar?</label>
                   <textarea 
                     id="message" 
+                    name="message"
                     rows="4"
                     required
                     className="w-full bg-[var(--color-piedra)] border border-[var(--color-linea)] rounded-xl px-5 py-4 text-[var(--color-crema)] focus:outline-none focus:border-[var(--color-amber)] transition-colors resize-none"

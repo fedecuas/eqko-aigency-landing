@@ -4,7 +4,7 @@ const steps = [
   {
     number: '01',
     title: 'Diagnóstico',
-    description: 'Sesión de 45 minutos donde entendemos tu negocio, tus objetivos y lo que ya intentaste. Identificamos los cuellos de botella específicos.',
+    description: 'Sesión de 30 minutos donde entendemos tu negocio, tus objetivos y lo que ya intentaste. Identificamos los cuellos de botella específicos.',
     duration: 'Día 1-2',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

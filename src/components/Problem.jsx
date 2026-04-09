@@ -79,34 +79,64 @@ export default function Problem() {
                 <div className="absolute inset-0 bg-dot-pattern opacity-10" />
                 
                 {/* Visual conceptualization of "Chaos to Order" */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full p-8 flex flex-col justify-center">
-                    <div className="space-y-4">
-                      {/* Animated lines or patterns could go here */}
-                      {[1, 2, 3, 4].map(i => (
+                <div className="absolute inset-0 flex flex-col justify-center p-6 md:p-10">
+                  {/* Traditional Method Section */}
+                  <div className="mb-8 relative">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                      <span className="text-[10px] font-bold text-red-500/80 uppercase tracking-[0.2em]">Mercado Tradicional (Ineficiente)</span>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {[
+                        { label: "Prospección Manual", width: "35%" },
+                        { label: "Silos de Datos / Excel", width: "20%" },
+                        { label: "Leads Perdidos", width: "45%" }
+                      ].map((item, i) => (
                         <div 
                           key={i}
-                          className="h-12 w-full border border-[var(--color-linea)] rounded-lg flex items-center px-4 gap-3 bg-[rgba(255,255,255,0.02)]"
-                          style={{ marginLeft: `${i * 12}px`, opacity: 1 - (i * 0.15) }}
+                          className="h-10 w-full border border-white/5 rounded-lg flex items-center justify-between px-4 bg-white/[0.02]"
+                          style={{ marginLeft: `${i * 10}px`, opacity: 0.8 - (i * 0.1) }}
                         >
-                          <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-                          <div className="h-2 w-1/2 bg-[rgba(255,255,255,0.05)] rounded" />
+                          <span className="text-[11px] font-medium text-[var(--color-niebla)]">{item.label}</span>
+                          <div className="w-16 h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div className="h-full bg-red-500/20" style={{ width: item.width }} />
+                          </div>
                         </div>
                       ))}
-                      
-                      <div className="py-4 flex justify-center">
-                        <div className="px-6 py-2 rounded-full bg-[var(--color-amber)] text-[var(--color-carbono)] font-display font-bold text-[14px] shadow-[0_0_30px_rgba(183,206,20,0.3)]">
-                          OPTIMIZANDO CON EQKO AI
-                        </div>
+                    </div>
+                  </div>
+                  
+                  {/* Transition Button */}
+                  <div className="relative z-10 py-2 flex justify-center">
+                    <div className="group/btn relative">
+                      <div className="absolute inset-0 bg-[var(--color-amber)]/30 blur-xl rounded-full animate-pulse" />
+                      <div className="relative px-6 py-2.5 rounded-full bg-[var(--color-amber)] text-[var(--color-carbono)] font-display font-black text-[12px] uppercase tracking-tighter shadow-xl">
+                        Optimizando con EQKO AI
                       </div>
+                    </div>
+                  </div>
 
-                      {[1, 2].map(i => (
+                  {/* EQKO System Section */}
+                  <div className="mt-8">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-amber)]" />
+                      <span className="text-[10px] font-bold text-[var(--color-amber)] uppercase tracking-[0.2em]">Sistema Inteligente EQKO</span>
+                    </div>
+
+                    <div className="space-y-3">
+                      {[
+                        { label: "Agentes IA 24/7", width: "95%" },
+                        { label: "CRM Fluido y Automatizado", width: "90%" }
+                      ].map((item, i) => (
                         <div 
                           key={i}
-                          className="h-12 w-full border border-[var(--color-amber)]/20 rounded-lg flex items-center px-4 gap-3 bg-[rgba(183,206,20,0.03)]"
+                          className="h-12 w-full border border-[var(--color-amber)]/20 rounded-lg flex items-center justify-between px-4 bg-[var(--color-amber)]/[0.04] shadow-[0_0_15px_rgba(183,206,20,0.05)]"
                         >
-                          <div className="w-2 h-2 rounded-full bg-[var(--color-amber)]" />
-                          <div className="h-2 w-3/4 bg-[var(--color-amber)]/10 rounded" />
+                          <span className="text-[12px] font-bold text-[var(--color-crema)]">{item.label}</span>
+                          <div className="w-24 h-1.5 bg-[var(--color-amber)]/10 rounded-full overflow-hidden">
+                            <div className="h-full bg-[var(--color-amber)] animate-shimmer bg-[length:200%_100%] bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)]" style={{ width: item.width }} />
+                          </div>
                         </div>
                       ))}
                     </div>

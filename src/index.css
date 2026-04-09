@@ -1,4 +1,4 @@
-﻿/* =========================================
+/* =========================================
    GOOGLE FONTS IMPORT — must be first
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap');
@@ -149,6 +149,45 @@ a {
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+@keyframes brandFloat {
+  0%, 100% { 
+    transform: translateY(0); 
+    filter: drop-shadow(0 0 0px rgba(183, 206, 20, 0)); 
+  }
+  50% { 
+    transform: translateY(-12px); 
+    filter: drop-shadow(0 25px 45px rgba(183, 206, 20, 0.35)); 
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.animate-brand-float {
+  animation: brandFloat 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes grow-height {
+  from { height: 0; opacity: 0; }
+  to { height: var(--final-height); opacity: 1; }
+}
+
+/* 3D & Perspective Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.space-tilt {
+  transform: rotateX(8deg) rotateY(-12deg);
 }
 
 /* =========================================

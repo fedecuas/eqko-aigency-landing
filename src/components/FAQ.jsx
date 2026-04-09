@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import CalendlyTrigger from './CalendlyTrigger';
 
 const faqs = [
   {
@@ -16,7 +17,7 @@ const faqs = [
   },
   {
     question: '¿En qué países trabajan?',
-    answer: 'Trabajamos con negocios de México, Colombia, Chile, Perú y toda LATAM. Todos los servicios son 100% remotos y digitales.',
+    answer: 'Trabajamos con negocios de MEX, EUA, UE y LATAM. Todos los servicios son 100% remotos y digitales.',
   },
   {
     question: '¿Qué diferencia a EQKO AIgency de otras agencias de marketing?',
@@ -130,8 +131,7 @@ export default function FAQ() {
               Escríbenos directamente.
             </a>
           </p>
-          <a
-            href="#contacto"
+          <CalendlyTrigger 
             className="
               inline-flex items-center gap-2
               font-display font-bold text-[15px] text-[var(--color-carbono)]
@@ -139,10 +139,11 @@ export default function FAQ() {
               px-7 py-4 rounded-xl
               transition-all duration-200
               animate-pulse-cta
+              cursor-pointer
+              border-none
             "
-          >
-            Agenda tu consultoría gratuita →
-          </a>
+            text="Agenda tu consultoría gratuita →"
+          />
         </div>
 
       </div>
